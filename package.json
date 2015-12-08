@@ -2,7 +2,7 @@
   "name": "app-installer",
   "version": "1.0.0",
   "description": "install linux app easyly",
-  "main": "main.js",
+  "main": "app/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/matias-pierobon/app-installer/issues"
   },
-  "homepage": "https://github.com/matias-pierobon/app-installer#readme"
+  "homepage": "https://github.com/matias-pierobon/app-installer#readme",
+  "devDependencies": {
+    "electron-prebuilt": "^0.35.0"
+  }
 }
