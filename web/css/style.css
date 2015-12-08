@@ -1,26 +1,21 @@
-#mainFab
-{
+#mainFab {
   position: fixed;
   bottom: 25px;
   right: 25px;
 }
 
-.nicescroll-rails, .nicescroll-rails > *{
-  z-index: 100000!important;
-}
-
-body{
+#main-container{
   padding-top: 64px;
 }
 
 @media screen and (max-width: 960px) {
-  body{
+  #main-container{
     padding-top: 48px;
   }
 }
 
 @media screen and (max-width: 704px) {
-  body{
+  #main-container{
     padding-top: 56px;
   }
 }
@@ -28,4 +23,10 @@ body{
 body > md-toolbar {
   position: fixed;
   top: 0;
+}
+
+
+.btn-lg{
+  font-size: 20px;
+  padding: 30px;
 }

@@ -5,7 +5,7 @@
         <md-list-item ng-repeat="icon in icons">
           <md-switch class="md-primary" ng-model="icon.wanted"></md-switch>
           <p> {{ icon.name }} </p>
-          <img src="{{ icon.img }}" />
+          <img src="{{ icon.img }}" style="max-width:75%;" />
         </md-list-item>
       </md-list>
     </md-card-content>

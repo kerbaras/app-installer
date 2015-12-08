@@ -15,19 +15,19 @@
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-aria/angular-aria.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js" charset="utf-8"></script>
   <script src="bower_components/angular-material/angular-material.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 
 <body ng-controller="AppController">
   <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
     <md-toolbar class="md-theme-indigo">
-      <h1 class="md-toolbar-tools">Sidenav Left</h1>
+      <h1 class="md-toolbar-tools">Menu</h1>
     </md-toolbar>
     <md-content>
       <md-list ng-cloak="">
         <md-list-item ng-repeat="item in menuItems" ng-click="go(item.url)">
-          <i class="material-icons">{{ item.icon }}</i>
+          <md-icon class="material-icons">{{ item.icon }}</md-icon>
           <p>{{ item.name }}</p>
         </md-list-item>
       </md-list>
@@ -42,25 +42,28 @@
         <span>App Installer</span>
       </h2>
       <span flex></span>
-      <md-button id="maxBtn" class="md-icon-button" aria-label="Favorite" style="-webkit-app-region: no-drag;">
-        <i class="material-icons">fullscreen</i>
+      <md-button id="maxBtn" ng-click="max()" class="md-icon-button" aria-label="Favorite" style="-webkit-app-region: no-drag;">
+        <i class="material-icons">{{ maxIcon() }}</i>
       </md-button>
-      <md-button id="closeBtn" class="md-icon-button" aria-label="More" style="-webkit-app-region: no-drag;">
+      <md-button ng-click="close()" id="closeBtn" class="md-icon-button" aria-label="More" style="-webkit-app-region: no-drag;">
         <i class="material-icons">close</i>
       </md-button>
     </div>
   </md-toolbar>
-  <md-content ng-view>
+  <md-content id="main-container" ng-view>
   </md-content>
-  <!--Import jQuery before materialize.js-->
+  <!--Import JQuery-->
+  <script src="bower_components/jquery/dist/jquery.js" charset="utf-8"></script>
   <script src="bower_components/jquery.nicescroll/dist/jquery.nicescroll.min.js" charset="utf-8"></script>
 
   <script src="js/app.js" charset="utf-8"></script>
+  <script src="js/services/Applications.js" charset="utf-8"></script>
   <script src="js/controllers/AppController.js" charset="utf-8"></script>
   <script src="js/controllers/AppsController.js" charset="utf-8"></script>
   <script src="js/controllers/ThemesController.js" charset="utf-8"></script>
   <script src="js/controllers/IconsController.js" charset="utf-8"></script>
   <script src="js/controllers/DashboardController.js" charset="utf-8"></script>
+  <script src="js/controllers/ScriptsController.js" charset="utf-8"></script>
 </body>
 
 </html>
