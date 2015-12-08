@@ -10,7 +10,7 @@
           <span class="md-subhead">{{ app.descr }}</span>
         </md-card-title-text>
         <md-card-title-media>
-          <md-switch class="md-primary" md-no-ink aria-label="Switch No Ink" ng-model="app.install">
+          <md-switch class="md-primary" ng-value="app.id in profile.apps">
         </md-card-title-media>
       </md-card-title>
     </md-card>

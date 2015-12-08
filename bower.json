@@ -23,7 +23,6 @@
     "angular-route": "~1.4.8",
     "angular-material": "master",
     "jquery": "~2.1.4",
-    "jquery.nicescroll": "~3.6.6",
-    "angular-resource": "~1.4.8"
+    "angular-resource": "~1.4.8",
   }
 }
