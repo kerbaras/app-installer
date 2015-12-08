@@ -1,31 +1,66 @@
 <html ng-app="app-installer">
+
 <head>
-  <title></title>
+  <title>App Installer</title>
   <!--Import Google Icon Font-->
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="bower_components/Materialize/dist/css/materialize.min.css"  media="screen,projection"/>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons|Roboto:100,300,400,500" rel="stylesheet">
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+  <link rel="stylesheet" href="css/style.css" charset="utf-8">
 
   <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Angular Material Dependencies -->
   <script src="bower_components/angular/angular.js"></script>
-  <script src="js/controllers.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
-<body>
 
-  <header>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">AppInstaller</a>
-      </div>
-    </nav>
-  </header>
-
-
-
+<body ng-controller="AppController">
+  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+    <md-toolbar class="md-theme-indigo">
+      <h1 class="md-toolbar-tools">Sidenav Left</h1>
+    </md-toolbar>
+    <md-content>
+      <md-list ng-cloak="">
+        <md-list-item ng-repeat="item in menuItems" ng-click="go(item.url)">
+          <i class="material-icons">{{ item.icon }}</i>
+          <p>{{ item.name }}</p>
+        </md-list-item>
+      </md-list>
+    </md-content>
+  </md-sidenav>
+  <md-toolbar md-primary md-scroll-shrink ng-if="true" style="-webkit-app-region: drag;">
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" aria-label="Menu" ng-click="toggleNav()" style="-webkit-app-region: no-drag;">
+        <i class="material-icons">menu</i>
+      </md-button>
+      <h2>
+        <span>App Installer</span>
+      </h2>
+      <span flex></span>
+      <md-button id="maxBtn" class="md-icon-button" aria-label="Favorite" style="-webkit-app-region: no-drag;">
+        <i class="material-icons">fullscreen</i>
+      </md-button>
+      <md-button id="closeBtn" class="md-icon-button" aria-label="More" style="-webkit-app-region: no-drag;">
+        <i class="material-icons">close</i>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-content ng-view>
+  </md-content>
   <!--Import jQuery before materialize.js-->
-  <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="bower_components/Materialize/js/materialize.min.js"></script>
+  <script src="bower_components/jquery.nicescroll/dist/jquery.nicescroll.min.js" charset="utf-8"></script>
+
+  <script src="js/app.js" charset="utf-8"></script>
+  <script src="js/controllers/AppController.js" charset="utf-8"></script>
+  <script src="js/controllers/AppsController.js" charset="utf-8"></script>
+  <script src="js/controllers/ThemesController.js" charset="utf-8"></script>
+  <script src="js/controllers/IconsController.js" charset="utf-8"></script>
+  <script src="js/controllers/DashboardController.js" charset="utf-8"></script>
 </body>
+
 </html>

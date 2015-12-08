@@ -1,0 +1,18 @@
+<section class="md-padding" layout="row" layout-wrap="" layout-align="center start">
+  <div flex-sm="100" flex-md="50" flex-lg="33" flex-gt-lg="25" layout="column" ng-repeat="app in apps">
+    <md-card style="min-height:100px;">
+      <md-card-title>
+        <md-card-title-media>
+          <img src="{{ app.logo }}" class="md-media-sm" style="height: 64px; width: 64px; margin-right: 10px;" />
+        </md-card-title-media>
+        <md-card-title-text>
+          <span class="md-headline">{{ app.nombre }}</span>
+          <span class="md-subhead">{{ app.descr }}</span>
+        </md-card-title-text>
+        <md-card-title-media>
+          <md-switch class="md-primary" md-no-ink aria-label="Switch No Ink" ng-model="app.install">
+        </md-card-title-media>
+      </md-card-title>
+    </md-card>
+  </div>
+</section>

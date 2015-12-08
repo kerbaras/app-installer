@@ -23,13 +23,24 @@ app.on('window-all-closed', function() {
 // initialization and is ready to create browser windows.
 app.on('ready', function() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600});
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    center: true,
+    title: "App Installer",
+    titleBarStyle: "hidden",
+    frame: false
+  });
+
+  mainWindow.setMenu(null);
 
   // and load the index.html of the app.
-  mainWindow.loadURL(`file://${__dirname}/../web/index.html`);
+  mainWindow.loadURL(`file://${__dirname}/web/index.html`);
+
+  mainWindow.setTitle("App Installer");
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
