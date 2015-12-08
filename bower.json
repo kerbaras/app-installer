@@ -1,0 +1,24 @@
+{
+  "name": "app-installer",
+  "description": "install linux app easyly",
+  "main": "web/index.html",
+  "authors": [
+    "Matias Pierobon <matias.pierobonm@gmail.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "app-installer"
+  ],
+  "homepage": "https://github.com/matias-pierobon/app-installer",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8"
+  }
+}
