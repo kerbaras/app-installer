@@ -1,39 +1,258 @@
 {
   "data": [{
     "id": 1,
-    "nombre": "Sublime Text",
-    "version": "3.0.0",
-    "descr": "Gran IDE",
-    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+    "nombre": "Atom Editor",
+    "descr": "Powerful open source text and code editor",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/atom.png"
   }, {
     "id": 2,
-    "nombre": "Sublime Text",
-    "version": "3.0.0",
-    "descr": "Gran IDE",
-    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+    "nombre": "Autokey",
+    "descr": "Desktop automation program",
+    "logo": "http://do-you-linux.com/wp-content/uploads/2014/09/autokey-icon.jpg"
   }, {
     "id": 3,
-    "nombre": "Sublime Text",
-    "version": "3.0.0",
-    "descr": "Gran IDE",
+    "nombre": "Birdie",
+    "descr": "Twitter client",
     "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
   }, {
     "id": 4,
-    "nombre": "Sublime Text",
-    "version": "3.0.0",
-    "descr": "Gran IDE",
-    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+    "nombre": "Blender",
+    "descr": "3D suite for modeling, animation and rendering",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/blender.png"
   }, {
-    "id": 5,
-    "nombre": "Sublime Text",
-    "version": "3.0.0",
-    "descr": "Gran IDE",
-    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+    "id": 5 ,
+    "nombre": "Brackets",
+    "descr": "Powerful open source text and code editor",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/brackets.png"
   }, {
     "id": 6,
-    "nombre": "Sublime Text",
-    "version": "3.0.0",
-    "descr": "Gran IDE",
+    "nombre": "Brasero",
+    "descr": "burn, copy and erase CD and DVD",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/disk-burner.png"
+  }, {
+    "id": 7,
+    "nombre": "Caffeine",
+    "descr": "disable the sleep powersaving mode",
+    "logo": "http://icons.iconarchive.com/icons/alecive/flatwoken/512/Apps-Caffeine-icon.png"
+  }, {
+    "id": 8,
+    "nombre": "Chrome",
+    "descr": "Google Chrome web browser",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/google-chrome.png"
+  },{
+    "id": 9,
+    "nombre": "Chrome Beta",
+    "descr": "Google Chrome web browser (beta) ",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/google-chrome.png"
+  }, {
+    "id": 10,
+    "nombre": "Chromium",
+    "descr": "Open source browser project from which Chrome is based",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/chromium-browser.png"
+  }, {
+    "id": 11,
+    "nombre": "Clementine",
+    "descr": "Music player",
+    "logo": "http://icons.iconarchive.com/icons/cornmanthe3rd/plex/512/Media-clementine-icon.png"
+  }, {
+    "id": 12,
+    "nombre": "Conky Manager",
+    "descr": "GUI for Conky",
+    "logo": "https://camo.githubusercontent.com/c542435e7f50507301e26a5661c6549d07043c2f/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f363839383232382f323436303339372f63643464303466362d616636392d313165332d393730322d3366663535386136623861332e706e67"
+  }, {
+    "id": 14,
+    "nombre": "Deluge",
+    "descr": "Free BitTorrent Client",
+    "logo": "http://www.iconarchive.com/download/i76655/xenatt/the-circle/App-Deluge.ico"
+  }, {
+    "id": 15,
+    "nombre": "Dropbox",
+    "descr": "Sync files across computers and to the web",
+    "logo": "http://www.iconarchive.com/download/i80439/uiconstock/socialmedia/Dropbox.ico"
+  }, {
+    "id": 16,
+    "nombre": "Dukto",
+    "descr": "easy file transfer tool for LAN use",
+    "logo": "http://allaboutwindowsphone.com/images/appicons/412820.png"
+  }, {
+    "id": 17,
+    "nombre": "Everpad",
+    "descr": "Evernote client well integrated with linux desktop",
+    "logo": "https://extensions.gnome.org/static/extension-data/icons/icon_677.png"
+  }, {
+    "id": 18,
+    "nombre": "FileZilla",
+    "descr": "full featured FTP client",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/filezilla.png"
+  }, {
+    "id": 19,
+    "nombre": "Firefox",
+    "descr": "Open source web browser",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/firefox.png"
+  }, {
+    "id": 20,
+    "nombre": "Geary",
+    "descr": "Email reader for the GNOME desktop",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/internet-mail.png"
+  }, {
+    "id": 21 ,
+    "nombre": "Gimp",
+    "descr": "Image manipulation program",
+    "logo": "http://icons.iconarchive.com/icons/cornmanthe3rd/plex/512/Media-gimp-icon.png"
+  }, {
+    "id": 22,
+    "nombre": "Gparted",
+    "descr": "Tool to create and manage disks and partitions",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/disk-partition-manager.png"
+  }, {
+    "id": 23,
+    "nombre": "Grive Tools",
+    "descr": "Instalation of Google Drive on Ubuntu",
+    "logo": "https://www.google.com.ar/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiS5fPx78_JAhVLFJAKHQF2CgsQjBwIBA&url=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fmarcus-roberto%2Fgoogle-play%2F256%2FGoogle-Drive-icon.png&psig=AFQjCNGEjyhDSB3so9UjFWDAb-fwactjVw&ust=1449788143423444"
+  }, {
+    "id": 24,
+    "nombre": "Grub Customizer",
+    "descr": "GUI to customize grub/burg",
+    "logo": "https://www.google.com.ar/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiLqrH978_JAhXJUJAKHYOADMcQjBwIBA&url=http%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F9cb4a6_98a71f3689f58fdaa0351c6fb4b9df77.png_srz_314_314_85_22_0.50_1.20_0.00_png_srz&psig=AFQjCNGvdE1EzMFoEmZ4XtWWdGp3zqC6wQ&ust=1449788177437996"
+  },{
+    "id": 25,
+    "nombre": "HexChat",
+    "descr": "IRC client based on XChat",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/xchat.png"
+  }, {
+    "id": 26,
+    "nombre": "Inkscape",
+    "descr": "Vector graphics software",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/inkscape.png"
+  }, {
+    "id": 27,
+    "nombre": "JDownloader",
+    "descr": "open source Downloader made in java",
+    "logo": "https://www.google.com.ar/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiSpaym8M_JAhWCH5AKHTYgBLoQjBwIBA&url=http%3A%2F%2Forig08.deviantart.net%2Fccae%2Ff%2F2009%2F158%2F7%2F1%2Fjdownloader_icon_by_obinoobie.png&psig=AFQjCNGHWU8dQ0n3kagUjxWhRFNe-qZO5A&ust=1449788259978618"
+  }, {
+    "id": 28,
+    "nombre": "KODI",
+    "descr": "Media center",
+    "logo": "https://www.google.com.ar/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiIsb2w8M_JAhVFgpAKHZR1B14QjBwIBA&url=http%3A%2F%2Fkodi.wiki%2Fimages%2Fthumb%2F8%2F8e%2FThumbnail-symbol-transparent.png%2F300px-Thumbnail-symbol-transparent.png&psig=AFQjCNGsOVYNjxRWyLSbgohuM4ls54iXIA&ust=1449788285114128"
+  },{
+    "id": 29,
+    "nombre": "Libreoffice",
+    "descr": "Powerful office suite",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/atom.png"
+  }, {
+    "id": 30,
+    "nombre": "My Weather Indicator",
+    "descr": "simple indicator for the weather",
+    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+  }, {
+    "id": 31,
+    "nombre": "Pidgin",
+    "descr": "instant messasing client",
+    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+  }, {
+    "id": 32,
+    "nombre": "Plex ",
+    "descr": "Media center",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/atom.png"
+  }, {
+    "id": 33,
+    "nombre": "Popcorn Time",
+    "descr": "Watch movies and TV shows from the BitTorrent network",
+    "logo": "http://do-you-linux.com/wp-content/uploads/2014/09/autokey-icon.jpg"
+  }, {
+    "id": 34,
+    "nombre": "SMPleayer",
+    "descr": "Free media player",
+    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+  }, {
+    "id": 35,
+    "nombre": "SimpleScreenRecorder",
+    "descr": "App to record your screen",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/blender.png"
+  }, {
+    "id": 36 ,
+    "nombre": "Spotify",
+    "descr": "Music streaming service",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/atom.png"
+  }, {
+    "id": 37,
+    "nombre": "Sublime 3",
+    "descr": "IDE for writing code",
+    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+  }, {
+    "id": 38,
+    "nombre": "Synapse",
+    "descr": "Semantic launcher to start apps and find files",
+    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+  }, {
+    "id": 39,
+    "nombre": "TeamViewer",
+    "descr": "Remotely control your desktop",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/blender.png"
+  },{
+    "id": 40,
+    "nombre": "Nomachinenx",
+    "descr": "Fast, low-latency remote desktop",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/atom.png"
+  }, {
+    "id": 41,
+    "nombre": "Thunderbird",
+    "descr": "Email reader and composer",
+    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+  }, {
+    "id": 42,
+    "nombre": "Transmission",
+    "descr": "Simple BitTorrent client",
+    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+  }, {
+    "id": 43,
+    "nombre": "Qbittorrent",
+    "descr": "full featured BitTorrent client",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/blender.png"
+  },{
+    "id": 44,
+    "nombre": "Elementary Tweaks",
+    "descr": "ElementaryOS tweak options",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/atom.png"
+  }, {
+    "id": 45,
+    "nombre": "Typhoon",
+    "descr": "quickly check the weather",
+    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+  }, {
+    "id": 46,
+    "nombre": "Unetbootin",
+    "descr": "allows the intalations for various OS's through USB drives",
+    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+  }, {
+    "id": 47,
+    "nombre": "Up-Clock",
+    "descr": "app inspired by Ubuntu Touch clock application",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/atom.png"
+  }, {
+    "id": 48,
+    "nombre": "VLC",
+    "descr": "Excellent Free and Open source media player",
+    "logo": "http://do-you-linux.com/wp-content/uploads/2014/09/autokey-icon.jpg"
+  }, {
+    "id": 49,
+    "nombre": "Vocal",
+    "descr": "Podcast app made for ElementaryOS",
+    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+  }, {
+    "id": 50,
+    "nombre": "Wine",
+    "descr": "Run windows programs with wine",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/blender.png"
+  }, {
+    "id": 51 ,
+    "nombre": "PlayonLinux",
+    "descr": "App that lets you play games using wine with minimal configurationa",
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/atom.png"
+  }, {
+    "id": 52,
+    "nombre": "Audience",
+    "descr": "Media player made for ElementaryOS",
     "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
   }]
 }
