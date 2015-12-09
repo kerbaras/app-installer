@@ -1,15 +1,15 @@
 <section class="md-padding" layout="row" layout-wrap="" layout-align="center start">
-  <div flex-sm="100" flex-md="50" flex-lg="33" flex-gt-lg="25" layout="column" ng-repeat="app in apps">
-    <md-card style="min-height:100px;">
+  <div flex="100" flex-sm="50" flex-md="33" flex-lg="25" flex-gt-lg="20" layout="column" ng-repeat="app in apps">
+    <md-card ng-style="{'min-height':'88px'}">
       <md-card-title>
-        <md-card-title-media>
-          <img ng-src="{{ app.logo }}" class="md-media-sm" ng-style="{'height': '64px', 'width': '64px', 'margin-right': '10px'}" />
+        <md-card-title-media ng-style="{'height': '48px', 'padding-top':'8px', 'margin-right': '10px'}">
+          <img ng-src="{{ app.logo }}" class="md-media-sm" ng-style="{'height': '48px', 'width': '48px'}" />
         </md-card-title-media>
-        <md-card-title-text>
-          <span class="md-headline">{{ app.nombre }}</span>
-          <span class="md-subhead">{{ app.descr }}</span>
+        <md-card-title-text ng-style="{'height': '48px'}">
+          <span class="md-headline" ng-style="{'line-height': '48px'}">{{ app.nombre }}</span>
+          <!-- <span class="md-subhead">{{ app.descr }}</span> -->
         </md-card-title-text>
-        <md-card-title-media>
+        <md-card-title-media ng-style="{'height': '48px'}">
           <md-switch class="md-primary" ng-checked="exists(app)" ng-click="toggle(app)"></md-switch>
         </md-card-title-media>
       </md-card-title>
