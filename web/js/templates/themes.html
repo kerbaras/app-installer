@@ -5,7 +5,7 @@
         <md-card-header-text>
           <span class="md-title" style="line-height:30px;">{{ theme.name }}</span>
         </md-card-header-text>
-        <md-switch class="md-primary" ng-model="theme.install" style="margin:0;"></md-switch>
+        <md-switch class="md-primary" ng-checked="exists(theme)" ng-click="toggle(theme)"></md-switch>
       </md-card-header>
       <div style="background-image: url('{{ theme.img }}'); height:400px;" class="md-card-image">
     </md-card>

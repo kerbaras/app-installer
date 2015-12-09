@@ -3,9 +3,9 @@
     <md-card-content>
       <md-list ng-cloak="">
         <md-list-item ng-repeat="icon in icons">
-          <md-switch class="md-primary" ng-model="icon.wanted"></md-switch>
+          <md-switch class="md-primary" ng-checked="exists(icon)" ng-click="toggle(icon)"></md-switch>
           <p> {{ icon.name }} </p>
-          <img src="{{ icon.img }}" style="max-width:75%;" />
+          <img ng-src="{{ icon.img }}" ng-style="{'max-width':'75%'}" />
         </md-list-item>
       </md-list>
     </md-card-content>

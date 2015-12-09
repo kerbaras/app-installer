@@ -24,7 +24,7 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
+    width: 961,
     height: 600,
     center: true,
     title: "App Installer",
@@ -40,7 +40,7 @@ app.on('ready', function() {
   mainWindow.setTitle("App Installer");
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {

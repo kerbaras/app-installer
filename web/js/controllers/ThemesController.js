@@ -1,23 +1,19 @@
-appInstaller.controller('ThemesController', function($scope) {
-  $scope.themes = [{
-    "name": "Paper",
-    "img": "https://2.bp.blogspot.com/-4IL8597IZR8/VJLHCI1yn_I/AAAAAAAAVGk/e48Wu0ADIeM/s1600/paper-gtk-theme-of.png",
-    "install": false
-  }, {
-    "name": "Paper",
-    "img": "https://2.bp.blogspot.com/-4IL8597IZR8/VJLHCI1yn_I/AAAAAAAAVGk/e48Wu0ADIeM/s1600/paper-gtk-theme-of.png",
-    "install": false
-  }, {
-    "name": "Paper",
-    "img": "https://2.bp.blogspot.com/-4IL8597IZR8/VJLHCI1yn_I/AAAAAAAAVGk/e48Wu0ADIeM/s1600/paper-gtk-theme-of.png",
-    "install": false
-  }, {
-    "name": "Paper",
-    "img": "https://2.bp.blogspot.com/-4IL8597IZR8/VJLHCI1yn_I/AAAAAAAAVGk/e48Wu0ADIeM/s1600/paper-gtk-theme-of.png",
-    "install": false
-  }, {
-    "name": "Paper",
-    "img": "https://2.bp.blogspot.com/-4IL8597IZR8/VJLHCI1yn_I/AAAAAAAAVGk/e48Wu0ADIeM/s1600/paper-gtk-theme-of.png",
-    "install": false
-  }];
+appInstaller.controller('ThemesController', function($scope, Themes) {
+
+  $scope.themes = null;
+  Themes.getAll().then(function(response){
+    $scope.themes = response.data;
+  });
+
+  $scope.selected = [];
+
+  $scope.toggle = function (theme) {
+    var idx = $scope.selected.indexOf(theme.id);
+    if (idx > -1) $scope.selected.splice(idx, 1);
+    else $scope.selected.push(theme.id);
+  };
+
+  $scope.exists = function (theme) {
+    return $scope.selected.indexOf(theme.id) > -1;
+  };
 });

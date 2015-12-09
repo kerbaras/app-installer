@@ -4,6 +4,15 @@
   right: 25px;
 }
 
+.nicescroll-rails{
+  z-index: 10000!important;
+}
+
+.nicescroll-rails > .nicescroll-cursors{
+  border-radius: 0!important;
+  border: 0!important;
+}
+
 #main-container{
   padding-top: 64px;
 }
@@ -24,7 +33,6 @@ body > md-toolbar {
   position: fixed;
   top: 0;
 }
-
 
 .btn-lg{
   font-size: 20px;

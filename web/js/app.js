@@ -26,3 +26,5 @@ appInstaller.config(function($mdThemingProvider, $routeProvider, $resourceProvid
         redirectTo: '/dashboard'
       });
 });
+
+$("html").niceScroll();

@@ -15,7 +15,7 @@ appInstaller.service('Profiles', function($window) {
     if(profiles == undefined){
       $window.localStorage.setItem('profiles', [ $this.getDefaultProfile() ]);
     }
-    return profiles.foreach(function (profile, index){
+    return profiles.forEach(function (profile, index){
       if(profile.name == name ){
         return profile;
       }

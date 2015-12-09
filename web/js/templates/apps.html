@@ -3,14 +3,14 @@
     <md-card style="min-height:100px;">
       <md-card-title>
         <md-card-title-media>
-          <img src="{{ app.logo }}" class="md-media-sm" style="height: 64px; width: 64px; margin-right: 10px;" />
+          <img ng-src="{{ app.logo }}" class="md-media-sm" ng-style="{'height': '64px', 'width': '64px', 'margin-right': '10px'}" />
         </md-card-title-media>
         <md-card-title-text>
           <span class="md-headline">{{ app.nombre }}</span>
           <span class="md-subhead">{{ app.descr }}</span>
         </md-card-title-text>
         <md-card-title-media>
-          <md-switch class="md-primary" ng-value="app.id in profile.apps">
+          <md-switch class="md-primary" ng-checked="exists(app)" ng-click="toggle(app)"></md-switch>
         </md-card-title-media>
       </md-card-title>
     </md-card>
