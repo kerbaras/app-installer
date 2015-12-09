@@ -24,6 +24,7 @@
     "angular-material": "master",
     "jquery": "~2.1.4",
     "angular-resource": "~1.4.8",
-    "jquery.nicescroll": "~3.6.6"
+    "nanoscroller": "~0.8.7",
+    "angular-nanoscroller": "~0.2.1"
   }
 }

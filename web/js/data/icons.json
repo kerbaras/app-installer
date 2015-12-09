@@ -15,5 +15,21 @@
     "id": 4,
     "name": "Numix-uTouch",
     "img": "https://oduso.com/image/5407499779b43e89383a2260"
+  },{
+    "id": 5,
+    "name": "Tap",
+    "img": "https://oduso.com/image/54074a7579b43e89383a2261"
+  }, {
+    "id": 6,
+    "name": "Nitrux",
+    "img": "https://oduso.com/image/54074b0a79b43e89383a2262"
+  }, {
+    "id": 7,
+    "name": "Pacifica",
+    "img": "https://oduso.com/image/543c0079e894790000091ff3"
+  }, {
+    "id": 8,
+    "name": "Flattr",
+    "img": "https://oduso.com/image/557237c1f6da0500006de633"
   }]
 }

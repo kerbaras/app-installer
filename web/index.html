@@ -5,6 +5,7 @@
   <!--Import Google Icon Font-->
   <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons|Roboto:100,300,400,500">
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+  <link rel="stylesheet" href="bower_components/nanoscroller/bin/css/nanoscroller.css" />
   <link rel="stylesheet" href="css/style.css" charset="utf-8">
 
   <!--Let browser know website is optimized for mobile-->
@@ -19,6 +20,8 @@
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.js" charset="utf-8"></script>
+  <script src="bower_components/angular-nanoscroller/scrollable.js"></script>
 </head>
 
 <body ng-controller="AppController">
@@ -35,7 +38,7 @@
       </md-list>
     </md-content>
   </md-sidenav>
-  <md-toolbar md-primary md-scroll-shrink ng-if="true" style="-webkit-app-region: drag;">
+  <md-toolbar md-primary md-scroll-shrink ng-if="true" ng-style="{'-webkit-app-region': 'drag'}">
     <div class="md-toolbar-tools">
       <md-button class="md-icon-button" aria-label="Menu" ng-click="toggleNav()" style="-webkit-app-region: no-drag;">
         <i class="material-icons">menu</i>
@@ -52,10 +55,12 @@
       </md-button>
     </div>
   </md-toolbar>
-  <md-content id="main-container" ng-view>
-  </md-content>
-
-  <script src="bower_components/jquery.nicescroll/dist/jquery.nicescroll.min.js" charset="utf-8"></script>
+  <div id="main-container">
+    <scrollable>
+      <md-content ng-view>
+      </md-content>
+    </scrollable>
+  </div>
 
   <script src="js/app.js" charset="utf-8"></script>
   <script src="js/services/Applications.js" charset="utf-8"></script>

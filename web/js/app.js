@@ -1,4 +1,4 @@
-var appInstaller = angular.module('app-installer', ['ngRoute','ngMaterial','ngAnimate', 'ngResource']);
+var appInstaller = angular.module('app-installer', ['ngRoute','ngMaterial','ngAnimate', 'ngResource', 'sun.scrollable']);
 
 appInstaller.config(function($mdThemingProvider, $routeProvider, $resourceProvider) {
   $mdThemingProvider.theme('default')
@@ -26,5 +26,3 @@ appInstaller.config(function($mdThemingProvider, $routeProvider, $resourceProvid
         redirectTo: '/dashboard'
       });
 });
-
-$("html").niceScroll();
