@@ -138,121 +138,121 @@
     "id": 29,
     "nombre": "Libreoffice",
     "descr": "Powerful office suite",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/atom.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/libreoffice.png"
   }, {
     "id": 30,
-    "nombre": "My Weather Indicator",
+    "nombre": "My Weather",
     "descr": "simple indicator for the weather",
-    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/gnome-weather.png"
   }, {
     "id": 31,
     "nombre": "Pidgin",
     "descr": "instant messasing client",
-    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+    "logo": "https://cdn2.iconfinder.com/data/icons/metro-ui-dock/512/Pidgin.png"
   }, {
     "id": 32,
     "nombre": "Plex ",
     "descr": "Media center",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/atom.png"
+    "logo": "https://s3.mzstatic.com/us/r30/Purple69/v4/e6/4c/f0/e64cf005-c867-f154-1fa0-fd8ea29611ca/icon175x175.png"
   }, {
     "id": 33,
     "nombre": "Popcorn Time",
     "descr": "Watch movies and TV shows from the BitTorrent network",
-    "logo": "http://do-you-linux.com/wp-content/uploads/2014/09/autokey-icon.jpg"
+    "logo": "http://www.icons101.com/icon_ico/id_81302/PopCornTime.ico"
   }, {
     "id": 34,
     "nombre": "SMPleayer",
     "descr": "Free media player",
-    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/multimedia-video-player.png"
   }, {
     "id": 35,
     "nombre": "SimpleScreenRecorder",
     "descr": "App to record your screen",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/blender.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/applets-screenshooter.png"
   }, {
     "id": 36 ,
     "nombre": "Spotify",
     "descr": "Music streaming service",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/atom.png"
+    "logo": "http://www.iconarchive.com/download/i98446/dakirby309/simply-styled/Spotify.ico"
   }, {
     "id": 37,
     "nombre": "Sublime 3",
     "descr": "IDE for writing code",
-    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/sublime-text.png"
   }, {
     "id": 38,
     "nombre": "Synapse",
     "descr": "Semantic launcher to start apps and find files",
-    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/synapse-icon.png"
   }, {
     "id": 39,
     "nombre": "TeamViewer",
     "descr": "Remotely control your desktop",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/blender.png"
+    "logo": "http://pre05.deviantart.net/66d4/th/pre/f/2014/160/3/e/teamviewer_by_bitingduke-d7lpfbz.png"
   },{
     "id": 40,
     "nombre": "Nomachinenx",
     "descr": "Fast, low-latency remote desktop",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/atom.png"
+    "logo": "http://www.rinorusso.it/wp-content/uploads/2011/12/nomachine.jpg"
   }, {
     "id": 41,
     "nombre": "Thunderbird",
     "descr": "Email reader and composer",
-    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/internet-mail.png"
   }, {
     "id": 42,
     "nombre": "Transmission",
     "descr": "Simple BitTorrent client",
-    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/transmission.png"
   }, {
     "id": 43,
     "nombre": "Qbittorrent",
     "descr": "full featured BitTorrent client",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/blender.png"
+    "logo": "https://i.imgur.com/Q28Nczm.png"
   },{
     "id": 44,
     "nombre": "Elementary Tweaks",
     "descr": "ElementaryOS tweak options",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/atom.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/preferences-desktop.png"
   }, {
     "id": 45,
     "nombre": "Typhoon",
     "descr": "quickly check the weather",
-    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+    "logo": "https://cdn3.iconfinder.com/data/icons/weather-icons/32/Tornado-512.png"
   }, {
     "id": 46,
     "nombre": "Unetbootin",
     "descr": "allows the intalations for various OS's through USB drives",
-    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+    "logo": "http://fsdportal.com/wp-content/uploads/2012/06/unetbootin-icon.png"
   }, {
     "id": 47,
     "nombre": "Up-Clock",
     "descr": "app inspired by Ubuntu Touch clock application",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/atom.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/accessories-clock.png"
   }, {
     "id": 48,
     "nombre": "VLC",
     "descr": "Excellent Free and Open source media player",
-    "logo": "http://do-you-linux.com/wp-content/uploads/2014/09/autokey-icon.jpg"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/vlc.png"
   }, {
     "id": 49,
     "nombre": "Vocal",
     "descr": "Podcast app made for ElementaryOS",
-    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+    "logo": "http://webmii.com/images/mic.png"
   }, {
     "id": 50,
     "nombre": "Wine",
     "descr": "Run windows programs with wine",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/blender.png"
+    "logo": "http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/wine-icon.png"
   }, {
     "id": 51 ,
     "nombre": "PlayonLinux",
     "descr": "App that lets you play games using wine with minimal configurationa",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/atom.png"
+    "logo": "https://3.bp.blogspot.com/-jOZvT0E-UxI/TzQjFzO00wI/AAAAAAAADF4/11MMNDCPKc4/s1600/1.png"
   }, {
     "id": 52,
     "nombre": "Audience",
     "descr": "Media player made for ElementaryOS",
-    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/multimedia-video-player.png"
   }]
 }
