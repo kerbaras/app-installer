@@ -108,12 +108,12 @@
     "id": 23,
     "nombre": "Grive Tools",
     "descr": "Instalation of Google Drive on Ubuntu",
-    "logo": "https://www.google.com.ar/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiS5fPx78_JAhVLFJAKHQF2CgsQjBwIBA&url=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fmarcus-roberto%2Fgoogle-play%2F256%2FGoogle-Drive-icon.png&psig=AFQjCNGEjyhDSB3so9UjFWDAb-fwactjVw&ust=1449788143423444"
+    "logo": "http://icons.iconarchive.com/icons/marcus-roberto/google-play/256/Google-Drive-icon.png"
   }, {
     "id": 24,
     "nombre": "Grub Customizer",
     "descr": "GUI to customize grub/burg",
-    "logo": "https://www.google.com.ar/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiLqrH978_JAhXJUJAKHYOADMcQjBwIBA&url=http%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2F9cb4a6_98a71f3689f58fdaa0351c6fb4b9df77.png_srz_314_314_85_22_0.50_1.20_0.00_png_srz&psig=AFQjCNGvdE1EzMFoEmZ4XtWWdGp3zqC6wQ&ust=1449788177437996"
+    "logo": "http://static.wixstatic.com/media/9cb4a6_98a71f3689f58fdaa0351c6fb4b9df77.png_srz_314_314_85_22_0.50_1.20_0.00_png_srz"
   },{
     "id": 25,
     "nombre": "HexChat",
@@ -128,12 +128,12 @@
     "id": 27,
     "nombre": "JDownloader",
     "descr": "open source Downloader made in java",
-    "logo": "https://www.google.com.ar/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiSpaym8M_JAhWCH5AKHTYgBLoQjBwIBA&url=http%3A%2F%2Forig08.deviantart.net%2Fccae%2Ff%2F2009%2F158%2F7%2F1%2Fjdownloader_icon_by_obinoobie.png&psig=AFQjCNGHWU8dQ0n3kagUjxWhRFNe-qZO5A&ust=1449788259978618"
+    "logo": "http://orig08.deviantart.net/ccae/f/2009/158/7/1/jdownloader_icon_by_obinoobie.png"
   }, {
     "id": 28,
     "nombre": "KODI",
     "descr": "Media center",
-    "logo": "https://www.google.com.ar/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiIsb2w8M_JAhVFgpAKHZR1B14QjBwIBA&url=http%3A%2F%2Fkodi.wiki%2Fimages%2Fthumb%2F8%2F8e%2FThumbnail-symbol-transparent.png%2F300px-Thumbnail-symbol-transparent.png&psig=AFQjCNGsOVYNjxRWyLSbgohuM4ls54iXIA&ust=1449788285114128"
+    "logo": "http://kodi.wiki/images/thumb/8/8e/Thumbnail-symbol-transparent.png/300px-Thumbnail-symbol-transparent.png"
   },{
     "id": 29,
     "nombre": "Libreoffice",
