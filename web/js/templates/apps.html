@@ -1,10 +1,10 @@
 <section class="md-padding" layout="row" layout-wrap="" layout-align="center start">
   <div flex="100" flex-sm="50" flex-md="33" flex-lg="25" flex-gt-lg="20" layout="column" ng-repeat="app in apps">
-    <md-card ng-style="{'min-height':'88px', 'padding': '10px 16px'}">
+    <md-card ng-style="{'min-height':'68px'}">
       <md-tooltip md-direction="bottom">
         {{ app.descr }}
       </md-tooltip>
-      <md-card-title>
+      <md-card-title ng-style="{'padding': '10px 16px'}">
         <md-card-title-media ng-style="{'height': '48px', 'padding-top':'8px', 'margin-right': '10px'}">
           <img ng-src="{{ app.logo }}" class="md-media-sm" ng-style="{'height': '48px', 'width': '48px'}" />
         </md-card-title-media>
