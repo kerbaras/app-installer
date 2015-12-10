@@ -2,7 +2,7 @@
   <md-card flex="100" flex-sm="100" flex-md="100" flex-lg="80" flex-gt-lg="60" layout="column">
     <md-card-content>
       <md-list ng-cloak="">
-        <md-list-item ng-repeat="icon in icons">
+        <md-list-item ng-repeat="icon in icons | orderBy:'+name'">
           <md-switch class="md-primary md-hue-2" ng-checked="exists(icon)" ng-click="toggle(icon)"></md-switch>
           <p> {{ icon.name }} </p>
           <img ng-src="{{ icon.img }}" ng-style="{'max-width':'75%'}" />

@@ -1,5 +1,5 @@
 <section class="scripts-list md-padding" layout="row" layout-wrap="" layout-align="center start">
-  <div flex-sm="100" flex-md="50" flex-lg="33" flex-gt-lg="25" layout="column" ng-repeat="script in scripts">
+  <div flex-sm="100" flex-md="50" flex-lg="33" flex-gt-lg="25" layout="column" ng-repeat="script in scripts | orderBy:'+name'">
     <md-card ng-style="{'background-color': script.color }">
       <md-card-title>
         <md-card-title-text>

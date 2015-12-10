@@ -1,5 +1,5 @@
 <section class="themes-list md-padding" layout="row" layout-wrap="" layout-align="center start">
-  <div flex="100" flex-sm="100" flex-md="50" flex-lg="45" flex-gt-lg="45" layout="column" ng-repeat="theme in themes">
+  <div flex="100" flex-sm="100" flex-md="50" flex-lg="45" flex-gt-lg="45" layout="column" ng-repeat="theme in themes | orderBy:'+name'">
     <md-card>
       <md-card-header>
         <md-card-header-text>
