@@ -1,9 +1,12 @@
 # app-installer
 
 ###Install dependencies
-    bower install
-    npm install
-
-###Start the app
-    npm start
+```{r, engine='bash', count_lines}
+bower install
+npm install
+```
+###start the app
+```{r, engine='bash', count_lines}
+npm start
+```
 # Enjoy ¯\\\_(ツ)\_/¯
