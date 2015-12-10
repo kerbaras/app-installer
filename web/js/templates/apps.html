@@ -1,6 +1,6 @@
 <section class="md-padding" layout="row" layout-wrap="" layout-align="center start">
   <div flex="100" flex-sm="50" flex-md="33" flex-lg="25" flex-gt-lg="20" layout="column" ng-repeat="app in apps">
-    <md-card ng-style="{'min-height':'68px'}">
+    <md-card ng-style="{'min-height':'68px', 'cursor': 'pointer'}" ng-click="toggle(app)">
       <md-tooltip md-direction="bottom">
         {{ app.descr }}
       </md-tooltip>
@@ -13,7 +13,7 @@
           <!-- <span class="md-subhead">{{ app.descr }}</span> -->
         </md-card-title-text>
         <md-card-title-media ng-style="{'height': '48px'}">
-          <md-switch class="md-primary" ng-checked="exists(app)" ng-click="toggle(app)"></md-switch>
+          <md-switch class="md-primary" ng-checked="exists(app)" ng-model="app.wanted" ng-change="toggle(app)"></md-switch>
         </md-card-title-media>
       </md-card-title>
     </md-card>

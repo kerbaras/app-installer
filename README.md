@@ -1,8 +1,6 @@
 # app-installer
-#Install dependencies ->>
+##Install dependencies ->>
 bower install; npm install
-#start the app
+##start the app
 npm start
 # Enjoy ¯\_(ツ)_/¯
-
-
