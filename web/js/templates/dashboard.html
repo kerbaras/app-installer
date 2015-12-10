@@ -1,4 +1,4 @@
-<md-tabs md-dynamic-height md-border-bottom class="md-primary" style="border-radius: 0;"  md-selected="selectedIndex">
+<md-tabs md-dynamic-height md-border-bottom class="md-primary md-hue-2" style="border-radius: 0;"  md-selected="selectedIndex">
   <md-tab label="Applications">
     <md-content class="md-padding" ng-controller="AppsController">
       <ng-include src="'js/templates/apps.html'"></ng-include>
@@ -26,6 +26,6 @@
   </md-tab>
 </md-tabs>
 
-<md-button id="mainFab" class="md-fab md-warn md-hue-2" ng-hide="isHidden()" ng-click="nextTab()">
+<md-button id="mainFab" class="md-fab md-primary" ng-hide="isHidden()" ng-click="nextTab()">
     <i class="material-icons">keyboard_arrow_right</i>
 </md-button>

@@ -2,9 +2,9 @@ var appInstaller = angular.module('app-installer', ['ngRoute','ngMaterial','ngAn
 
 appInstaller.config(function($mdThemingProvider, $routeProvider, $resourceProvider) {
   $mdThemingProvider.theme('default')
-    .primaryPalette('indigo')
+    .primaryPalette('blue-grey')
     .accentPalette('pink')
-    .warnPalette('blue-grey');
+    .warnPalette('indigo');
 
   $resourceProvider.defaults.stripTrailingSlashes = false;
   $routeProvider.

@@ -1,6 +1,6 @@
-<section class="md-padding" layout="row" layout-wrap="" layout-align="center start">
+<section class="scripts-list md-padding" layout="row" layout-wrap="" layout-align="center start">
   <div flex-sm="100" flex-md="50" flex-lg="33" flex-gt-lg="25" layout="column" ng-repeat="script in scripts">
-    <md-card style="background-color: {{ script.color }};">
+    <md-card ng-style="{'background-color': script.color }">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">{{ script.name }}</span>
