@@ -23,6 +23,53 @@
   bottom: 0;
 }
 
+
+.app-list md-card{
+  min-height: 68px;
+  cursor: pointer;
+}
+
+.app-list md-card > md-card-title {
+  padding: 10px 16px;
+}
+
+.app-list md-card > md-card-title > md-card-title-media{
+  height: 48px;
+}
+.app-list md-card > md-card-title > md-card-title-media:first-child{
+  margin-left: 10px;
+  padding-top: 8px;
+}
+
+.app-list md-card > md-card-title > md-card-title-media >img {
+  height: 48px;
+  width: 48px;
+}
+
+.app-list md-card > md-card-title > md-card-title-text{
+  line-height: 48px;
+}
+
+.themes-list md-card > md-card-header .md-title {
+  line-height:30px;
+}
+
+.themes-list md-card > md-card-header > md-switch {
+  margin: 0;
+}
+
+.themes-list md-card > .md-card-image {
+  background-position: left top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height:400px;
+}
+
+.scripts-list md-card > md-card-title {
+  min-height: 45px;
+}
+
+
 @media screen and (max-width: 960px) {
   #main-container{
     top: 48px;
