@@ -16,4 +16,19 @@ appInstaller.controller('AppsController', function($scope, Applications) {
   $scope.exists = function (app) {
     return $scope.selected.indexOf(app.id) > -1;
   };
+
+  $scope.selectAll = function () {
+    $scope.apps.forEach(function (element){
+      if($scope.selected.indexOf(app.id) == -1)
+        $scope.selected.push(app.id);
+    });
+  };
+
+  $scope.disableAll = function () {
+    $scope.apps.forEach(function (element){
+      var idx = $scope.selected.indexOf(app.id);
+      if(idx > -1) $scope.selected.splice(idx, 1);
+    });
+  };
+
 });

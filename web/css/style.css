@@ -37,7 +37,7 @@
   height: 48px;
 }
 .app-list md-card > md-card-title > md-card-title-media:first-child{
-  margin-left: 10px;
+  margin-right: 10px;
   padding-top: 8px;
 }
 
@@ -46,7 +46,7 @@
   width: 48px;
 }
 
-.app-list md-card > md-card-title > md-card-title-text{
+.app-list md-card > md-card-title > md-card-title-text > span{
   line-height: 48px;
 }
 
