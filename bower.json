@@ -26,5 +26,8 @@
     "angular-resource": "~1.4.8",
     "nanoscroller": "~0.8.7",
     "angular-nanoscroller": "~0.2.1"
+  },
+  "resolutions": {
+    "angular": "1.4.8"
   }
 }
