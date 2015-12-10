@@ -13,7 +13,7 @@
     "id": 3,
     "nombre": "Birdie",
     "descr": "Twitter client",
-    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/sublime-text-icon.png"
+    "logo": "https://raw.githubusercontent.com/moka-project/moka-icon-theme/master/Moka/64x64/apps/birdie.png"
   }, {
     "id": 4,
     "nombre": "Blender",
@@ -148,7 +148,7 @@
     "id": 31,
     "nombre": "Pidgin",
     "descr": "instant messasing client",
-    "logo": "https://cdn2.iconfinder.com/data/icons/metro-ui-dock/512/Pidgin.png"
+    "logo": "https://raw.githubusercontent.com/moka-project/moka-icon-theme/master/Moka/96x96%402x/apps/pidgin.png"
   }, {
     "id": 32,
     "nombre": "Plex ",
@@ -158,10 +158,10 @@
     "id": 33,
     "nombre": "Popcorn Time",
     "descr": "Watch movies and TV shows from the BitTorrent network",
-    "logo": "http://www.icons101.com/icon_ico/id_81302/PopCornTime.ico"
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Popcorn_Time_logo.png"
   }, {
     "id": 34,
-    "nombre": "SMPleayer",
+    "nombre": "SMPlayer",
     "descr": "Free media player",
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/multimedia-video-player.png"
   }, {
@@ -198,20 +198,20 @@
     "id": 41,
     "nombre": "Thunderbird",
     "descr": "Email reader and composer",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/internet-mail.png"
+    "logo": "https://cdn2.iconfinder.com/data/icons/metro-uinvert-dock/256/Thunderbird.png"
   }, {
     "id": 42,
     "nombre": "Transmission",
     "descr": "Simple BitTorrent client",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/transmission.png"
+    "logo": "http://icons.iconarchive.com/icons/blackvariant/button-ui-app-pack-one/64/Transmission-icon.png"
   }, {
     "id": 43,
     "nombre": "Qbittorrent",
     "descr": "full featured BitTorrent client",
-    "logo": "https://i.imgur.com/Q28Nczm.png"
+    "logo": "https://avatars2.githubusercontent.com/u/2131270?v=3&s=400"
   },{
     "id": 44,
-    "nombre": "Elementary Tweaks",
+    "nombre": "Tweak Tools",
     "descr": "ElementaryOS tweak options",
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/preferences-desktop.png"
   }, {
