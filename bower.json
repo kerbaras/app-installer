@@ -25,7 +25,8 @@
     "jquery": "~2.1.4",
     "angular-resource": "~1.4.8",
     "nanoscroller": "~0.8.7",
-    "angular-nanoscroller": "~0.2.1"
+    "angular-nanoscroller": "~0.2.1",
+    "angular-local-storage": "~0.2.3"
   },
   "resolutions": {
     "angular": "1.4.8"

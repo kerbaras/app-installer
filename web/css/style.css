@@ -91,3 +91,7 @@ body > md-toolbar {
   font-size: 20px;
   padding: 30px;
 }
+
+.text-center{
+  text-align: center;
+}

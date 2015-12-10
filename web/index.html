@@ -1,7 +1,7 @@
 <html ng-app="app-installer">
 
 <head>
-  <title>App Installer</title>
+  <title>Hexeract</title>
   <!--Import Google Icon Font-->
   <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons|Roboto:100,300,400,500">
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
@@ -21,7 +21,8 @@
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="bower_components/angular-material/angular-material.js"></script>
-  <script src="bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.js" charset="utf-8"></script>
+  <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+  <script src="bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.js"></script>
   <script src="bower_components/angular-nanoscroller/scrollable.js"></script>
 </head>
 
@@ -45,7 +46,7 @@
         <i class="material-icons">menu</i>
       </md-button>
       <h2>
-        <span>App Installer</span>
+        <span>Hexeract</span>
       </h2>
       <span flex></span>
       <md-button id="maxBtn" ng-click="max()" class="md-icon-button" aria-label="Favorite" style="-webkit-app-region: no-drag;">
@@ -73,10 +74,11 @@
   <script src="js/services/Profiles.js" charset="utf-8"></script>
   <script src="js/controllers/AppController.js" charset="utf-8"></script>
   <script src="js/controllers/AppsController.js" charset="utf-8"></script>
-  <script src="js/controllers/ThemesController.js" charset="utf-8"></script>
-  <script src="js/controllers/IconsController.js" charset="utf-8"></script>
   <script src="js/controllers/DashboardController.js" charset="utf-8"></script>
+  <script src="js/controllers/IconsController.js" charset="utf-8"></script>
   <script src="js/controllers/ScriptsController.js" charset="utf-8"></script>
+  <script src="js/controllers/SettingsController.js" charset="utf-8"></script>
+  <script src="js/controllers/ThemesController.js" charset="utf-8"></script>
 </body>
 
 </html>
