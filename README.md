@@ -3,4 +3,4 @@
 bower install; npm install
 ##start the app
 npm start
-# Enjoy ¯\\_(ツ)_/¯
+# Enjoy ¯\\\_(ツ)\_/¯
