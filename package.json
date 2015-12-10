@@ -1,7 +1,7 @@
 {
   "name": "app-installer",
   "version": "1.0.0",
-  "description": "install linux app easyly",
+  "description": "Easyly install applications for linux, themes, icons and custom scripts.",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

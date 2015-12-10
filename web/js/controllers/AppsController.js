@@ -5,7 +5,7 @@ appInstaller.controller('AppsController', function($scope, Applications) {
     $scope.apps = response.data;
   });
 
-  $scope.selected = [];
+  $scope.selected = [1,4,6];
 
   $scope.toggle = function (app) {
     var idx = $scope.selected.indexOf(app.id);
