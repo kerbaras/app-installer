@@ -27,7 +27,7 @@
 
 <body ng-controller="AppController">
   <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
-    <md-toolbar class="md-theme-indigo">
+    <md-toolbar class="md-primary md-hue-2">
       <h1 class="md-toolbar-tools">Menu</h1>
     </md-toolbar>
     <md-content>
@@ -39,7 +39,7 @@
       </md-list>
     </md-content>
   </md-sidenav>
-  <md-toolbar md-primary md-scroll-shrink ng-if="true" ng-style="{'-webkit-app-region': 'drag'}">
+  <md-toolbar class="md-primary md-hue-2" md-scroll-shrink ng-if="true" ng-style="{'-webkit-app-region': 'drag'}">
     <div class="md-toolbar-tools">
       <md-button class="md-icon-button" aria-label="Menu" ng-click="toggleNav()" style="-webkit-app-region: no-drag;">
         <i class="material-icons">menu</i>

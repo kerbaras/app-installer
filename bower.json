@@ -1,6 +1,6 @@
 {
   "name": "app-installer",
-  "description": "Easyly install applications for linux, themes, icons and custom scripts.",
+  "description": "Easily install applications for linux, themes, icons and custom scripts.",
   "main": "web/index.html",
   "authors": [
     "Matias Pierobon <matias.pierobonm@gmail.com>"
