@@ -17,7 +17,7 @@ appInstaller.controller('AppsController', function($scope, Applications, localSt
       }
     });
   }
-  var profile = localStorageService.get('profile');
+  var profile = localStorageService.get('profile') || 'default';
 
   localStorageService.bind($scope, 'profiles');
 
