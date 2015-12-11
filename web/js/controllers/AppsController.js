@@ -5,10 +5,7 @@ appInstaller.controller('AppsController', function($scope, Applications, localSt
     $scope.apps = response.data;
   });
 
-  var profile = localStorageService.get('profile');
-  if (profile == null) profile = 'default';
-
-  if(localStorageService.get('profiles') == null){
+  if(!localStorageService.get('profiles')){
     localStorageService.set('profiles', {
       'default' : {
         'apps' : [],
@@ -18,6 +15,7 @@ appInstaller.controller('AppsController', function($scope, Applications, localSt
       }
     });
   }
+  var profile = localStorageService.get('profile');
 
   localStorageService.bind($scope, 'profiles');
 
