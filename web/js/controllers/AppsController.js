@@ -4,6 +4,10 @@ appInstaller.controller('AppsController', function($scope, Applications, profile
     $scope.apps = response.data;
   });
 
+
+  var profile = profileService.getCurrentProfile();
+  profileService.bind($scope);
+
   $scope.toggle = function (app) {
     var idx = $scope.profiles[profile].apps.indexOf(app.id);
     if (idx > -1) $scope.profiles[profile].apps.splice(idx, 1);

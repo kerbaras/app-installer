@@ -4,11 +4,7 @@ appInstaller.service('profileService', function(localStorageService) {
     return localStorageService.get('profile') || 'default';
   };
 
-  this.getCurrentProfile = function (profile){
-    localStorageService.set('profile', profile);
-  };
-
-  this.bind = function (scope, all = false) {
+  this.bind = function (scope, all) {
     if(!localStorageService.get('profiles')){
        $this.clearProfiles();
     }
@@ -55,4 +51,5 @@ appInstaller.service('profileService', function(localStorageService) {
       }
     };
     scope.profile = 'default';
-  }
+  };
+});
