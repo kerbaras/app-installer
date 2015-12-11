@@ -6,7 +6,14 @@ appInstaller.service('profileService', function(localStorageService) {
 
   this.bind = function (scope, all) {
     if(!localStorageService.get('profiles')){
-       $this.clearProfiles();
+       localStorageService.set('profiles', {
+         'default': {
+           'apps' : [],
+           'themes' : [],
+           'icons' : [],
+           'scripts' : []
+         }
+       });
     }
 
     localStorageService.bind(scope, 'profiles');
