@@ -18,16 +18,13 @@ appInstaller.controller('ScriptsController', function($scope, Scripts, profileSe
   };
 
   $scope.selectAll = function () {
-    $scope.scripts.forEach(function (element){
+    angular.forEach($scope.scripts,function(script,key){
       if($scope.profiles[profile].scripts.indexOf(script.id) == -1)
         $scope.profiles[profile].scripts.push(script.id);
     });
   };
 
   $scope.disableAll = function () {
-    $scope.scripts.forEach(function (element){
-      var idx = $scope.profiles[profile].scripts.indexOf(script.id);
-      if(idx > -1) $scope.profiles[profile].scripts.splice(idx, 1);
-    });
+    $scope.profiles[profile].scripts = [];
   };
 });

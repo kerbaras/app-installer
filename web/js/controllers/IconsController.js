@@ -3,7 +3,7 @@ appInstaller.controller('IconsController', function($scope, Icons, profileServic
   Icons.getAll().then(function(response){
     $scope.icons = response.data;
   });
-  
+
   var profile = profileService.getCurrentProfile();
   profileService.bind($scope);
 
@@ -18,16 +18,13 @@ appInstaller.controller('IconsController', function($scope, Icons, profileServic
   };
 
   $scope.selectAll = function () {
-    $scope.icons.forEach(function (element){
+    angular.forEach($scope.icons,function(icon,key){
       if($scope.profiles[profile].icons.indexOf(icon.id) == -1)
         $scope.profiles[profile].icons.push(icon.id);
     });
   };
 
   $scope.disableAll = function () {
-    $scope.icons.forEach(function (element){
-      var idx = $scope.profiles[profile].icons.indexOf(icon.id);
-      if(idx > -1) $scope.profiles[profile].icons.splice(idx, 1);
-    });
+    $scope.profiles[profile].icons = [];
   };
 });

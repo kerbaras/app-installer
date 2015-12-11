@@ -1,8 +1,7 @@
 appInstaller.service('profileService', function(localStorageService) {
   var $this = this;
   this.getCurrentProfile = function (){
-    var profile = localStorageService.get('profile');
-    return (profile) ? profile : 'default';
+    return localStorageService.get('profile') || 'default';
   };
 
   this.getCurrentProfile = function (profile){

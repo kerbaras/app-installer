@@ -18,16 +18,13 @@ appInstaller.controller('ThemesController', function($scope, Themes, profileServ
   };
 
   $scope.selectAll = function () {
-    $scope.themes.forEach(function (element){
+    angular.forEach($scope.themes,function(theme,key){
       if($scope.profiles[profile].themes.indexOf(theme.id) == -1)
         $scope.profiles[profile].themes.push(theme.id);
     });
   };
 
   $scope.disableAll = function () {
-    $scope.themes.forEach(function (element){
-      var idx = $scope.profiles[profile].themes.indexOf(theme.id);
-      if(idx > -1) $scope.profiles[profile].themes.splice(idx, 1);
-    });
+    $scope.profiles[profile].themes = [];
   };
 });
