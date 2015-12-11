@@ -1,23 +1,11 @@
-appInstaller.controller('AppsController', function($scope, Applications, localStorageService) {
+appInstaller.controller('AppsController', function($scope, Applications, profileService) {
 
-  $scope.apps = null;
   Applications.getAll().then(function(response){
     $scope.apps = response.data;
   });
 
-  if(!localStorageService.get('profiles')){
-    localStorageService.set('profiles', {
-      'default' : {
-        'apps' : [],
-        'themes' : [],
-        'icons' : [],
-        'scripts' : []
-      }
-    });
-  }
-  var profile = localStorageService.get('profile');
-
-  localStorageService.bind($scope, 'profiles');
+  var profile = profileService.getCurrentProfile();
+  profileService.bind($scope);
 
   $scope.toggle = function (app) {
     var idx = $scope.profiles[profile].apps.indexOf(app.id);

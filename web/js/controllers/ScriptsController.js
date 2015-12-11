@@ -1,25 +1,11 @@
-appInstaller.controller('ScriptsController', function($scope, Scripts, localStorageService) {
+appInstaller.controller('ScriptsController', function($scope, Scripts, profileService) {
 
-  $scope.scripts = null;
   Scripts.getAll().then(function(response){
     $scope.scripts = response.data;
   });
 
-  var profile = localStorageService.get('profile');
-  if (profile == null) profile = 'default';
-
-  if(localStorageService.get('profiles') == null){
-    localStorageService.set('profiles', {
-      'default' : {
-        'apps' : [],
-        'themes' : [],
-        'icons' : [],
-        'scripts' : []
-      }
-    });
-  }
-
-  localStorageService.bind($scope, 'profiles');
+  var profile = profileService.getCurrentProfile();
+  profileService.bind($scope);
 
   $scope.toggle = function (script) {
     var idx = $scope.profiles[profile].scripts.indexOf(script.id);

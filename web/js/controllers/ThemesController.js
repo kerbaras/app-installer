@@ -1,25 +1,11 @@
-appInstaller.controller('ThemesController', function($scope, Themes, localStorageService) {
+appInstaller.controller('ThemesController', function($scope, Themes, profileService) {
 
-  $scope.themes = null;
   Themes.getAll().then(function(response){
     $scope.themes = response.data;
   });
 
-  var profile = localStorageService.get('profile');
-  if (profile == null) profile = 'default';
-
-  if(localStorageService.get('profiles') == null){
-    localStorageService.set('profiles', {
-      'default' : {
-        'apps' : [],
-        'themes' : [],
-        'icons' : [],
-        'scripts' : []
-      }
-    });
-  }
-
-  localStorageService.bind($scope, 'profiles');
+  var profile = profileService.getCurrentProfile();
+  profileService.bind($scope);
 
   $scope.toggle = function (theme) {
     var idx = $scope.profiles[profile].themes.indexOf(theme.id);

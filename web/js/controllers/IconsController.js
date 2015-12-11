@@ -1,25 +1,11 @@
-appInstaller.controller('IconsController', function($scope, Icons, localStorageService) {
+appInstaller.controller('IconsController', function($scope, Icons, profileService) {
 
-  $scope.icons = null;
   Icons.getAll().then(function(response){
     $scope.icons = response.data;
   });
-
-  var profile = localStorageService.get('profile');
-  if (profile == null) profile = 'default';
-
-  if(localStorageService.get('profiles') == null){
-    localStorageService.set('profiles', {
-      'default' : {
-        'apps' : [],
-        'themes' : [],
-        'icons' : [],
-        'scripts' : []
-      }
-    });
-  }
-
-  localStorageService.bind($scope, 'profiles');
+  
+  var profile = profileService.getCurrentProfile();
+  profileService.bind($scope);
 
   $scope.toggle = function (icon) {
     var idx = $scope.profiles[profile].icons.indexOf(icon.id);

@@ -1,51 +1,23 @@
-appInstaller.controller('SettingsController', function($scope, localStorageService) {
+appInstaller.controller('SettingsController', function($scope, profileService) {
 
-  localStorageService.bind($scope, 'profiles');
-  localStorageService.bind($scope, 'profile');
+  profileService.bind($scope, true);
 
-  if ($scope.profile == null) $scope.profile = 'default';
+  if (!$scope.profile) $scope.profile = 'default';
 
   $scope.newProfileName = '';
 
   $scope.onKeyPress = function (event) {
-    if(event.keyCode === 13 && $scope.newProfileName.trim() != ''){
-      if($scope.profiles[$scope.newProfileName] == null){
-        $scope.profiles[$scope.newProfileName] = {
-          'apps' : [],
-          'themes' : [],
-          'icons' : [],
-          'scripts' : []
-        };
-        $scope.profile = $scope.newProfileName;
-        $scope.newProfileName = '';
-      }
+    if(event.keyCode === 13){
+      profileService.addProfile($scope, $scope.newProfileName);
     }
   };
 
   $scope.deleteProfile = function () {
-    if($scope.profile == 'default'){
-      $scope.profiles.default = {
-        'apps' : [],
-        'themes' : [],
-        'icons' : [],
-        'scripts' : []
-      };
-    }else{
-      delete $scope.profiles[$scope.profile];
-      $scope.profile = 'default';
-    }
+      profileService.deleteProfile($scope);
   };
 
   $scope.clearProfiles = function () {
-    $scope.profiles = {
-      'default' : {
-        'apps': [],
-        'themes': [],
-        'icons': [],
-        'scripts': [],
-      }
-    };
-    $scope.profile = 'default';
+      profileService.clearProfiles($scope);
   }
 
 });
