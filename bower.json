@@ -26,7 +26,8 @@
     "angular-resource": "~1.4.8",
     "nanoscroller": "~0.8.7",
     "angular-nanoscroller": "~0.2.1",
-    "angular-local-storage": "~0.2.3"
+    "angular-local-storage": "~0.2.3",
+    "hexeract-data-layer": "https://github.com/luchopcerra/hexeract-data-layer.git"
   },
   "resolutions": {
     "angular": "1.4.8"
