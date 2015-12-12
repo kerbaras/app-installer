@@ -1,6 +1,7 @@
 appInstaller.controller('AppController', function($scope,$mdSidenav,$location){
   var remote = require('remote');
   var BrowserWindow = remote.require('browser-window');
+  var win = BrowserWindow.getFocusedWindow();
 
   $scope.menuItems = [
     { name:"Dashboard", icon: "home", url:"/dashboard" },
@@ -19,12 +20,10 @@ appInstaller.controller('AppController', function($scope,$mdSidenav,$location){
   };
 
   $scope.close = function () {
-   var win = BrowserWindow.getFocusedWindow();
    win.close();
   }
 
   $scope.max = function () {
-   var win = BrowserWindow.getFocusedWindow();
    if(win.isMaximized()){
      win.unmaximize();
    }else {
@@ -33,7 +32,6 @@ appInstaller.controller('AppController', function($scope,$mdSidenav,$location){
   }
 
   $scope.maxIcon = function () {
-   var win = BrowserWindow.getFocusedWindow();
     return (win.isMaximized()) ? 'fullscreen_exit' : 'fullscreen';
   }
 });
