@@ -10,14 +10,12 @@ appInstaller.factory('InstallerFactory', function () {
       var body, repos, install, postInstall;
 
       angular.forEach(profile.apps, function (app) {
-        var setup = app.distro;
+        var setup = app.distros[distro];
         install += "echo \"Installing " + app.nombre + "\" \n";
         install += "(\n";
         switch (setup.type) {
           case 'ppa':
             repos += "\tapt-add-repository " + setup.repository + " -y\n";
-
-
             install += "\tapt-get -y install " + setup.package + "\n";
             break;
           case 'pkey':
@@ -44,7 +42,7 @@ appInstaller.factory('InstallerFactory', function () {
       body += "\n";
 
       body += "echo --------------------------------------------------------------------------------\n";
-      body += "echo \"We are not responsible for any damages that may possibly occur while using ODUSO\"\n";
+      body += "echo \"We are not responsible for any damages that may possibly occur while using Hexeract\"\n";
       body += "echo --------------------------------------------------------------------------------\n";
       body += "echo \"   \"\n";
       body += "sleep 2\n"
@@ -93,6 +91,15 @@ appInstaller.factory('InstallerFactory', function () {
       body += ") &> /dev/null && echo -e \"$green OK $endcolor\" || echo -e \"$red FAILED $endcolor\"; # Hide all output\n";
       body += "\n";
 
+      body += "HEXERACT\n";
+      body += "\n";
+      body += "notify-send \"Hexeract\" \"Finished installing\"\n";
+      body += "\n";
+      body += "exit 0\n";
+
+      body += "\n";
+      body += postInstall;
+      body += "\n";
     }
   }
 });
