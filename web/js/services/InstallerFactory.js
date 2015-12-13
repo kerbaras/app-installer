@@ -1,4 +1,4 @@
-appInstaller.factory('InstallerFactory', function () {
+appInstaller.factory('InstallerFactory', function (Applications) {
   var normalize = function (string) {
     string = string.toLowerCase();
     string = string.replace(/[&\/\\#,\+\(\)\$\~\%.'"\:\*\?<>\{\}]/g, '');
@@ -8,26 +8,28 @@ appInstaller.factory('InstallerFactory', function () {
   return {
     getInstaller : function (profile, distro, settings) {
       var body, repos, install, postInstall;
-
+      
       angular.forEach(profile.apps, function (app) {
-        var setup = app.distros[distro];
-        install += "echo \"Installing " + app.nombre + "\" \n";
-        install += "(\n";
-        switch (setup.type) {
-          case 'ppa':
-            repos += "\tapt-add-repository " + setup.repository + " -y\n";
-            install += "\tapt-get -y install " + setup.package + "\n";
-            break;
-          case 'pkey':
-            repos += "wget -q -O - " + setup.package.key  + " | sudo apt-key add - !";
-            repos += "echo \"" + setup.package.url + setup.version + "\" > /etc/apt/sources.list.d/" + normalize(app.nombre) + ".list";
-            install += "\tapt-get -y install " + setup.package.name + "\n";
-            break;
-          default:
-            install += "\tapt-get -y install " + setup.package + "\n";
-        }
+        Applications.get(app).then(function (app) {
+          var setup = app.distros[distro];
+          install += "echo \"Installing " + app.nombre + "\" \n";
+          install += "(\n";
+          switch (setup.type) {
+            case 'ppa':
+              repos += "\tapt-add-repository " + setup.repository + " -y\n";
+              install += "\tapt-get -y install " + setup.package + "\n";
+              break;
+            case 'pkey':
+              repos += "wget -q -O - " + setup.package.key  + " | sudo apt-key add - !";
+              repos += "echo \"" + setup.package.url + setup.version + "\" > /etc/apt/sources.list.d/" + normalize(app.nombre) + ".list";
+              install += "\tapt-get -y install " + setup.package.name + "\n";
+              break;
+            default:
+              install += "\tapt-get -y install " + setup.package + "\n";
+          }
 
-        install += ") &> /dev/null && echo -e \"$green OK $endcolor\" || echo -e \"$red FAILED $endcolor\"; # Hide all output\n";
+          install += ") &> /dev/null && echo -e \"$green OK $endcolor\" || echo -e \"$red FAILED $endcolor\"; # Hide all output\n";
+        });
       });
 
       body = "#!/bin/bash\n";
@@ -100,6 +102,8 @@ appInstaller.factory('InstallerFactory', function () {
       body += "\n";
       body += postInstall;
       body += "\n";
+
+      return body;
     }
   }
 });
