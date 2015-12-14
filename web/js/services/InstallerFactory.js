@@ -16,17 +16,28 @@ appInstaller.factory('InstallerFactory', function () {
         switch (setup.type) {
           case 'ppa':
             repos += "\tapt-add-repository " + setup.repository + " -y\n";
-
-
             install += "\tapt-get -y install " + setup.package + "\n";
             break;
           case 'pkey':
-            repos += "wget -q -O - " + setup.package.key  + " | sudo apt-key add - !";
-            repos += "echo \"" + setup.package.url + setup.version + "\" > /etc/apt/sources.list.d/" + normalize(app.nombre) + ".list";
+            repos += "\twget -q -O - " + setup.package.key  + " | sudo apt-key add - !";
+            repos += "\techo \"" + setup.package.url + setup.version + "\" > /etc/apt/sources.list.d/" + normalize(app.nombre) + ".list";
             install += "\tapt-get -y install " + setup.package.name + "\n";
             break;
-          default:
+          case 'pkey':
             install += "\tapt-get -y install " + setup.package + "\n";
+          default:
+            setup.repos = [].concat(setup.repos);
+            setup.install = [].concat(setup.install);
+            setup.postInstall = [].concat(setup.postInstall);
+            angular.forEach(setup.repos, function (cmd) {
+              repos += "\t" + cmd + "\n";
+            });
+            angular.forEach(setup.install, function (cmd) {
+              install += "\t" + cmd + "\n";
+            });
+            angular.forEach(setup.postInstall, function (cmd) {
+              postInstall += "\t" + cmd + "\n";
+            });
         }
 
         install += ") &> /dev/null && echo -e \"$green OK $endcolor\" || echo -e \"$red FAILED $endcolor\"; # Hide all output\n";
