@@ -1,5 +1,5 @@
 appInstaller.service('profileService', function(localStorageService) {
-  var $this = this;
+
   this.getCurrentProfile = function (){
     return localStorageService.get('profile') || 'default';
   };
@@ -43,7 +43,7 @@ appInstaller.service('profileService', function(localStorageService) {
         'scripts' : []
       };
     }else{
-      delete scope.profiles[scope];
+      delete scope.profiles[scope.profile];
       scope.profile = 'default';
     }
   };
