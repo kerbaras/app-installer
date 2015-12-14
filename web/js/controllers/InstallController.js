@@ -1,9 +1,9 @@
-appInstaller.controller('InstallController', function($scope, $mdDialog, Applications, Themes, Icons, Scripts, profileService, InstallerFactory) {
+appInstaller.controller('InstallController', function($scope, $mdDialog, profileService, InstallerFactory) {
   var profile = profileService.getCurrentProfile();
   profileService.bind($scope);
 
   $scope.distro = 'Ubuntu';
-  $scope.distros = ['Ubuntu']
+  $scope.distros = ['Ubuntu'];
 
   $scope.download = function () {
     var remote = require('remote');
@@ -20,11 +20,12 @@ appInstaller.controller('InstallController', function($scope, $mdDialog, Applica
     }, function (path) {
       if(path){
         var fs = require('fs');
-        var installer = InstallerFactory.getInstaller(prof, distro);
-        fs.writeFile(path, installer, function(err) {
-          if(err) {
-            return console.log(err);
-          }
+        InstallerFactory.getInstaller(prof, distro).then(function (installer) {
+          fs.writeFile(path, installer, function(err) {
+            if(err) {
+              return console.log(err);
+            }
+          });
         });
       }
     });

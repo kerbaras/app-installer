@@ -1,4 +1,5 @@
 appInstaller.controller('AppsController', function($scope, Applications, profileService) {
+
   Applications.getAll().then(function(response){
     //expected [{"id": int,"nombre": String,"descr": String,"logo":String}...]
     $scope.apps = response.data;

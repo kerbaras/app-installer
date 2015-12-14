@@ -25,7 +25,7 @@
 
 
 .app-list md-card{
-  min-height: 68px;
+  height: 68px;
   cursor: pointer;
 }
 
@@ -48,6 +48,9 @@
 
 .app-list md-card > md-card-title > md-card-title-text > span{
   line-height: 48px;
+  max-height: 48px;
+  overflow: hidden;
+  white-space: pre;
 }
 
 .themes-list md-card > md-card-header .md-title {
