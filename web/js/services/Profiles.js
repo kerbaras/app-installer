@@ -48,7 +48,7 @@ appInstaller.service('profileService', function(localStorageService) {
     }
   };
 
-  this.clearProfiles = function () {
+  this.clearProfiles = function (scope) {
     scope.profiles = {
       'default' : {
         'apps': [],
