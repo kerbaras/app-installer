@@ -1,4 +1,4 @@
-var appInstaller = angular.module('app-installer', ['ngRoute','ngMaterial','ngAnimate', 'ngResource', 'LocalStorageModule', 'sun.scrollable']);
+var appInstaller = angular.module('app-installer', ['ngRoute', 'ngSanitize','ngMaterial','ngAnimate', 'ngResource', 'LocalStorageModule', 'sun.scrollable']);
 
 appInstaller.config(function($mdThemingProvider, $routeProvider, $resourceProvider, localStorageServiceProvider) {
   $mdThemingProvider.theme('default')
