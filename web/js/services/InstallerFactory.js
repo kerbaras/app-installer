@@ -1,4 +1,4 @@
-appInstaller.factory('InstallerFactory', function($q, Applications) {
+appInstaller.factory('InstallerFactory', function($q, Applications, Icons) {
   var normalize = function(string) {
     string = string.toLowerCase();
     string = string.replace(/[&\/\\#,\+\(\)\$\~\%.'"\:\*\?<>\{\}]/g, '');
@@ -9,7 +9,8 @@ appInstaller.factory('InstallerFactory', function($q, Applications) {
     getInstaller: function(profile, distro, settings) {
 
       var appsDefer = $q.defer();
-      var promises = [appsDefer.promise];
+      var iconsDefer = $q.defer();
+      var promises = [appsDefer.promise, iconsDefer.promise];
 
       Applications.get(profile.apps).then(function(apps) {
         var repos = install = postInstall = "";
@@ -58,13 +59,51 @@ appInstaller.factory('InstallerFactory', function($q, Applications) {
         });
       });
 
+      Icons.get(profile.icons).then(function(icons) {
+        var repos = install = postInstall = "";
+        install += "echo \"Installing Icons\"\n";
+        install += "echo \" \"\n";
+        install += "\n";
+        angular.forEach(icons, function(icon) {
+          install += "echo \"Installing " + icon.name + "\" \n";
+          install += "(\n";
+          switch (icon.type) {
+            case 'ppa':
+              repos += "\tapt-add-repository " + icon.repository + " -y\n";
+              install += "\tapt-get -y install " + icon.package + "\n";
+              break;
+            case default:
+              icon.repos = (icon.repos) ? [].concat(icon.repos) : [];
+              icon.install = (icon.install) ? [].concat(icon.install) : [];
+              icon.postInstall = (icon.postInstall) ? [].concat(icon.postInstall) : [];
+
+              angular.forEach(icon.repos, function(cmd) {
+                repos += "\t" + cmd + "\n";
+              });
+
+              angular.forEach(icon.install, function(cmd) {
+                install += "\t" + cmd + "\n";
+              });
+
+              angular.forEach(icon.postInstall, function(cmd) {
+                postInstall += "\t" + cmd + "\n";
+              });
+          };
+        });
+        iconsDefer.resolve({
+          repos: repos,
+          install: install,
+          postInstall: postInstall
+        });
+      });
+
       var deferred = $q.defer();
 
       $q.all(promises).then(function(results) {
         var body = repos = install = postInstall = "";
         angular.forEach(results, function(result) {
           repos += result.repos;
-          install += result.install;
+          install += "\n" + result.install + "\n";
           postInstall += result.postInstall;
         });
 
