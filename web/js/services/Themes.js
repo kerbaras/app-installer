@@ -24,7 +24,7 @@ appInstaller.factory('Themes', function($resource, $q) {
             }
           });
       });
-      return deferred;
+      return deferred.promise;
     }
   };
 });

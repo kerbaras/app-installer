@@ -24,7 +24,7 @@ appInstaller.factory('Icons', function($resource, $q) {
             }
           });
       });
-      return deferred;
+      return deferred.promise;
     }
   };
 });

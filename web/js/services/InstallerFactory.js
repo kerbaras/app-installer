@@ -1,10 +1,10 @@
-appInstaller.service('InstallerFactory', function($q, Applications, Icons) {
+appInstaller.service('InstallerFactory', function($q, Applications, Icons, Themes) {
   var normalize = function(string) {
     string = string.toLowerCase();
     string = string.replace(/[&\/\\#,\+\(\)\$\~\%.'"\:\*\?<>\{\}]/g, '');
     string = string.replace(/\s+/g, '-');
     return string;
-  }
+  };
 
   this.getInstaller = function(profile, distro, settings) {
 
