@@ -90,6 +90,9 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
               postInstall += "\t" + cmd + "\n";
             });
         };
+
+        install += ") &> /dev/null && echo -e \"$green OK $endcolor\" || echo -e \"$red FAILED $endcolor\"; # Hide all output\n";
+        install += "\n";
       });
       iconsDefer.resolve({
         repos: repos,
@@ -128,6 +131,9 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
               postInstall += "\t" + cmd + "\n";
             });
         };
+
+        install += ") &> /dev/null && echo -e \"$green OK $endcolor\" || echo -e \"$red FAILED $endcolor\"; # Hide all output\n";
+        install += "\n";
       });
       themesDefer.resolve({
         repos: repos,
