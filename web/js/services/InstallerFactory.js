@@ -6,22 +6,21 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
     return string;
   };
 
-  var processAplications = function(apps) {
+  var processAplications = function(apps, distro) {
     var defer = $q.defer();
     if (apps && apps.length > 0) {
       Applications.get(apps).then(function(apps) {
         var repos = install = postInstall = "";
         install += "\n" +
-          "\n" +
-          "echo \"\"\n" +
-          "echo \"\"\n" +
-          "echo \"Installing Applications\"\n" +
-          "echo \"\"\n" +
+          "display_row \" \"\n" +
+          "display_row \"Applications:\"\n" +
+          "display_row \" \"\n" +
           "\n";
         angular.forEach(apps, function(app) {
           var setup = app.distros[distro];
-          install += "echo \"Installing " + app.nombre + "\"\n";
-          install += "(\n";
+          install += "setup=\"Installing " + app.nombre + "\"\n" +
+                     "(\n" +
+                     "\tsudo -s <<HEXERACT\n";
           switch (setup.type) {
             case 'ppa':
               repos += "\tapt-add-repository " + setup.repository + " -y\n";
@@ -53,8 +52,10 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
               });
           }
 
-          install += ") &> /dev/null && echo -e \"$green OK $endcolor\" || echo -e \"$red FAILED $endcolor\"; # Hide all output\n";
-          install += "\n";
+          install +=  "HEXERACT\n" +
+                      ") &> /dev/null && display_done || display_error &\n" +
+                      "display_rowloader\n" +
+                      "\n";
         });
         defer.resolve({
           repos: repos,
@@ -78,15 +79,14 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
       Icons.get(icons).then(function(icons) {
         var repos = install = postInstall = "";
         install += "\n" +
-          "\n" +
-          "echo \"\"\n" +
-          "echo \"\"\n" +
-          "echo \"Installing Icons\"\n" +
-          "echo \"\"\n" +
+          "display_row \" \"\n" +
+          "display_row \"Icons:\"\n" +
+          "display_row \" \"\n" +
           "\n";
         angular.forEach(icons, function(icon) {
-          install += "echo \"Installing " + icon.name + "\"\n";
-          install += "(\n";
+          install += "setup=\"Installing " + icon.name + "\"\n" +
+                     "(\n" +
+                     "\tsudo -s <<HEXERACT\n";
           switch (icon.type) {
             case 'ppa':
               repos += "\tapt-add-repository " + icon.repository + " -y\n";
@@ -110,8 +110,10 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
               });
           };
 
-          install += ") &> /dev/null && echo -e \"$green OK $endcolor\" || echo -e \"$red FAILED $endcolor\"; # Hide all output\n";
-          install += "\n";
+          install +=  "HEXERACT\n" +
+                      ") &> /dev/null && display_done || display_error &\n" +
+                      "display_rowloader\n" +
+                      "\n";
         });
         defer.resolve({
           repos: repos,
@@ -135,15 +137,14 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
       Themes.get(themes).then(function(themes) {
         var repos = install = postInstall = "";
         install += "\n" +
-          "\n" +
-          "echo \"\"\n" +
-          "echo \"\"\n" +
-          "echo \"Installing Themes\"\n" +
-          "echo \"\"\n" +
+          "display_row \" \"\n" +
+          "display_row \"Themes:\"\n" +
+          "display_row \" \"\n" +
           "\n";
         angular.forEach(themes, function(theme) {
-          install += "echo \"Installing " + theme.name + "\"\n";
-          install += "(\n";
+          install += "setup=\"Installing " + theme.name + "\"\n" +
+                     "(\n" +
+                     "\tsudo -s <<HEXERACT\n";
           switch (theme.type) {
             case 'ppa':
               repos += "\tapt-add-repository " + theme.repository + " -y\n";
@@ -167,8 +168,10 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
               });
           };
 
-          install += ") &> /dev/null && echo -e \"$green OK $endcolor\" || echo -e \"$red FAILED $endcolor\"; # Hide all output\n";
-          install += "\n";
+          install +=  "HEXERACT\n" +
+                      ") &> /dev/null && display_done || display_error &\n" +
+                      "display_rowloader\n" +
+                      "\n";
         });
         defer.resolve({
           repos: repos,
@@ -266,7 +269,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
     var deferred = $q.defer();
 
     $q.all([
-        processAplications(profile.apps),
+        processAplications(profile.apps, distro),
         processIcons(profile.icons),
         processThemes(profile.themes)
       ])
@@ -300,12 +303,12 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
         body += getScriptFunctions() +
           "\n";
 
-        body += "display_screen \"We are not responsible for any damages that may possibly occur while using Hexeract!\"" +
-          "sleep 2\n" +
+        body += "display_screen \"We are not responsible for any damages that may possibly occur while using Hexeract!\"\n" +
+          "sudo sleep 2\n" +
           "\n" +
           "display_screen \"Welcome to Hexeract!\"\n";
 
-        body += "trap \"rm -rf $tmp\" INT TERM EXIT\n\n";
+        body += "trap \"sudo rm -rf $tmp\" INT TERM EXIT\n\n";
 
         body += "display_row \" \"\n" +
           "display_row \"Preparing Installation: \"\n" +
@@ -314,17 +317,17 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
         if (repos != "") {
           body += "setup=\"Adding Repositories\"\n" +
             "(\n" +
-            "\tsudo -s <<<HEXERACT\n" +
+            "\tsudo -s <<HEXERACT\n" +
             repos + "\n" +
-            "\tHEXERACT\n" +
+            "HEXERACT\n" +
             ") &> /dev/null && display_done || display_error &\n" +
             "display_rowloader\n" +
             "\n";
         }
 
-        body += "setup=\"Updateing System\"\n" +
+        body += "setup=\"Updating System\"\n" +
           "(\n" +
-          "\t sudo apt-get update\n" +
+          "\tsudo apt-get update\n" +
           ") &> /dev/null && display_done || display_error &\n" +
           "display_rowloader\n";
 
@@ -339,13 +342,13 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
 
         body += "display_row \" \"\n" +
           "display_row \" \"\n" +
-          "display_row \"Updateing Packages: \"\n" +
+          "display_row \"Updating Packages: \"\n" +
           "display_row \" \"\n" +
           "\n" +
           "setup=\"Installing Failed Dependencies\"\n" +
           "(\n" +
           "\tsudo apt-get -f install -y\n" +
-          ")  &> /dev/null && display_done || display_error &\n" +
+          ") &> /dev/null && display_done || display_error &\n" +
           "display_rowloader\n" +
           "\n";
 

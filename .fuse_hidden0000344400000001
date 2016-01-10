@@ -1,0 +1,164 @@
+#!/bin/bash
+clear
+
+# Create a secure tmp directory
+tmp=$(mktemp -d -t hexeract.XXXXXXXXXX)
+
+# Checks if the system is 64bit or 32bit
+[[ $(uname -m) == x86_64 ]] && arch=amd64 || arch=i386
+
+if [ $(tput colors) ]; then # Checks if terminal supports colors
+	red="\e[31m"
+	green="\e[32m"
+	endcolor="\e[39m"
+fi
+
+echo --------------------------------------------------------------------------------
+echo "We are not responsible for any damages that may possibly occur while using Hexeract"
+echo --------------------------------------------------------------------------------
+echo "   "
+sleep 2
+
+#use sudo rights for the whole script
+sudo -s <<HEXERACT
+
+clear
+
+echo ------------------
+echo "Welcome to Hexeract!"
+echo ------------------
+echo "   "
+sleep 2
+
+trap "rm -rf $tmp" EXIT
+
+# Add all the repositories
+echo "Adding Repositories" 
+(
+	wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+	echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/chrome.list
+	apt-add-repository ppa:moka/stable -y
+	apt-add-repository ppa:numix/ppa -y
+	apt-add-repository ppa:tiheum/equinox -y
+	apt-add-repository ppa:nitrux-team/nitrux-artwork -y
+	apt-add-repository ppa:moka/stable -y
+	apt-add-repository ppa:moka/stable -y
+	apt-add-repository ppa:numix/ppa -y
+	apt-add-repository ppa:noobslab/icons -y
+	apt-add-repository ppa:snwh/pulp -y
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+echo "Updating System" 
+(
+apt-get update
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+
+echo "Installing Chrome" 
+(
+	apt-get install -y google-chrome-stable
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+
+
+echo "Installing Icons"
+echo " "
+
+echo "Installing Moka" 
+(
+	apt-get -y install moka-icon-theme
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+echo "Installing Numix-Circle" 
+(
+	apt-get -y install numix-icon-theme-circle
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+echo "Installing El Faenza" 
+(
+	apt-get -y install faenza-icon-theme
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+echo "Installing Numix-uTouch" 
+(
+	apt-get install git
+	git clone https://github.com/numixproject/numix-icon-theme-utouch.git $tmp/utouch
+	mv $tmp/utouch/Numix-uTouch /usr/share/icons/
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+echo "Installing Nitrux" 
+(
+	apt-get -y install nitrux-icon-theme
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+echo "Installing Pacifica" 
+(
+	wget http://fc00.deviantart.net/fs71/f/2013/305/9/6/pacifica_icons_by_bokehlicia-d6nn5lb.zip -O $tmp/pacifica.zip
+	unzip $tmp/pacifica.zip -d $tmp
+	mv $tmp/Pacifica /usr/share/icons/
+	mv $tmp/Pacifica-U /usr/share/icons/
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+echo "Installing Flattr" 
+(
+	wget https://github.com/NitruxSA/flattr-icons/archive/master.zip -O $tmp/flattr.zip && unzip $tmp/flattr.zip -d $tmp && mv $tmp/flattr-icons-master/Flattr /usr/share/icons
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+echo "Installing Faba" 
+(
+	apt-get -y install faba-icon-theme faba-mono-icons
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+echo "Installing Orchis" 
+(
+	apt-get -y install orchis-gtk-theme
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+echo "Installing Numix" 
+(
+	apt-get -y install numix-icon-theme
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+echo "Installing Ultra Flat" 
+(
+	apt-get -y install ultra-flat-icons
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+echo "Installing Paper" 
+(
+	apt-get -y install paper-icon-theme
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+
+
+echo "Installing Themes"
+echo " "
+
+echo "Installing Arc" 
+(
+	wget http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_15.04/all/arc-theme_1450051815.946cbf5_all.deb -O $tmp/arc-theme.deb
+	dpkg -i $tmp/arc-theme.deb
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+
+
+echo "Upgrading old packages"
+(
+apt-get -f install -y 
+#apt-get -y upgrade
+#apt-get -y dist-upgrade
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+echo "Cleaning up"
+(
+apt-get -y autoremove 
+apt-get -y autoclean 
+apt-get -y clean
+) &> /dev/null && echo -e "$green OK $endcolor" || echo -e "$red FAILED $endcolor"; # Hide all output
+
+HEXERACT
+
+
+notify-send "Hexeract" "Finished installing"
+
+exit 0
