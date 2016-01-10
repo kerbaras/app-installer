@@ -385,7 +385,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
             "( \n " +
             postInstall +
             ")  &> /dev/null && display_done || display_error & \n " +
-            "display_rowloader \n " +
+            "display_rowloader \n ";
         }
         body += "display_row \" \" \n " +
           "display_row \" \" \n " +
