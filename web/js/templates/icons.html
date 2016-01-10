@@ -1,6 +1,5 @@
 <section class="md-padding" layout="row" layout-wrap layout-align="center start">
-  <md-card flex="100" flex-sm="100" flex-md="100" flex-lg="80" flex-gt-lg="60" layout="column">
-    <md-card-content>
+  <article flex="100" flex-sm="100" flex-md="100" flex-lg="80" flex-gt-lg="60" layout="column" class="md-whiteframe-8dp">
       <md-list ng-cloak="">
         <md-list-item ng-repeat="icon in icons | orderBy:'+name'">
           <md-switch class="md-primary md-hue-2" ng-checked="exists(icon)" ng-click="toggle(icon)"></md-switch>
@@ -8,6 +7,5 @@
           <img ng-src="{{ icon.img }}" ng-style="{'max-width':'75%'}" />
         </md-list-item>
       </md-list>
-    </md-card-content>
   </md-card>
 </section>

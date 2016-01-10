@@ -4,27 +4,24 @@ appInstaller.controller('ThemesController', function($scope, Themes, profileServ
     $scope.themes = response.data;
   });
 
-  var profile = profileService.getCurrentProfile();
-  profileService.bind($scope);
-
   $scope.toggle = function (theme) {
-    var idx = $scope.profiles[profile].themes.indexOf(theme.id);
-    if (idx > -1) $scope.profiles[profile].themes.splice(idx, 1);
-    else $scope.profiles[profile].themes.push(theme.id);
+    var idx = $scope.$parent.profiles[$scope.$parent.profile].themes.indexOf(theme.id);
+    if (idx > -1) $scope.$parent.profiles[$scope.$parent.profile].themes.splice(idx, 1);
+    else $scope.$parent.profiles[$scope.$parent.profile].themes.push(theme.id);
   };
 
   $scope.exists = function (theme) {
-    return $scope.profiles[profile].themes.indexOf(theme.id) > -1;
+    return $scope.$parent.profiles[$scope.$parent.profile].themes.indexOf(theme.id) > -1;
   };
 
   $scope.selectAll = function () {
     angular.forEach($scope.themes,function(theme,key){
-      if($scope.profiles[profile].themes.indexOf(theme.id) == -1)
-        $scope.profiles[profile].themes.push(theme.id);
+      if($scope.$parent.profiles[$scope.$parent.profile].themes.indexOf(theme.id) == -1)
+        $scope.$parent.profiles[$scope.$parent.profile].themes.push(theme.id);
     });
   };
 
   $scope.disableAll = function () {
-    $scope.profiles[profile].themes = [];
+    $scope.$parent.profiles[$scope.$parent.profile].themes = [];
   };
 });

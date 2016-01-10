@@ -23,6 +23,10 @@
   bottom: 0;
 }
 
+.layout-column {
+  max-height: none!important;
+}
+
 
 .app-list md-card{
   height: 68px;
