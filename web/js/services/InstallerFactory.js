@@ -8,6 +8,8 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
 
   this.getInstaller = function(profile, distro, settings) {
 
+    settings = angular.extend({}, settings);
+
     var appsDefer = $q.defer();
     var iconsDefer = $q.defer();
     var themesDefer = $q.defer();
@@ -16,6 +18,13 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
     if (profile.apps && profile.apps > 0) {
       Applications.get(profile.apps).then(function(apps) {
         var repos = install = postInstall = "";
+        install +=  "\n" +
+                    "\n" +
+                    "echo \"\"\n" +
+                    "echo \"\"\n" +
+                    "echo \"Installing Applications\"\n" +
+                    "echo \"\"\n" +
+                    "\n";
         angular.forEach(apps, function(app) {
           var setup = app.distros[distro];
           install += "echo \"Installing " + app.nombre + "\" \n";
@@ -71,9 +80,13 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
     if (profile.icons && profile.icons > 0) {
       Icons.get(profile.icons).then(function(icons) {
         var repos = install = postInstall = "";
-        install += "echo \"Installing Icons\"\n";
-        install += "echo \" \"\n";
-        install += "\n";
+        install +=  "\n" +
+                    "\n" +
+                    "echo \"\"\n" +
+                    "echo \"\"\n" +
+                    "echo \"Installing Icons\"\n" +
+                    "echo \"\"\n" +
+                    "\n";
         angular.forEach(icons, function(icon) {
           install += "echo \"Installing " + icon.name + "\" \n";
           install += "(\n";
@@ -120,9 +133,13 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
     if (profile.themes && profile.themes > 0) {
       Themes.get(profile.themes).then(function(themes) {
         var repos = install = postInstall = "";
-        install += "echo \"Installing Themes\"\n";
-        install += "echo \" \"\n";
-        install += "\n";
+        install +=  "\n" +
+                    "\n" +
+                    "echo \"\"\n" +
+                    "echo \"\"\n" +
+                    "echo \"Installing Themes\"\n" +
+                    "echo \"\"\n" +
+                    "\n";
         angular.forEach(themes, function(theme) {
           install += "echo \"Installing " + theme.name + "\" \n";
           install += "(\n";
@@ -172,7 +189,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
       var body = repos = install = postInstall = "";
       angular.forEach(results, function(result) {
         repos += result.repos;
-        install += "\n" + result.install + "\n";
+        install += result.install;
         postInstall += result.postInstall;
       });
 
@@ -214,7 +231,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
               "sleep 2\n" +
               "\n";
 
-      body += "trap \"rm -rf $tmp\" EXIT\n\n";
+      body += "trap \"rm -rf $tmp\" INT TERM EXIT\n\n";
 
       if(repos != ""){
         body += "# Add all the repositories\n"+
@@ -240,11 +257,11 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
               "(\n" +
               "\tapt-get -f install -y \n";
 
-      if(upgrade) {
+      if(settings.upgrade) {
         body += "\tapt-get -y upgrade\n";
       }
 
-      if(distUpgrade) {
+      if(settings.distUpgrade) {
         body += "\tapt-get -y dist-upgrade\n";
       }
 
