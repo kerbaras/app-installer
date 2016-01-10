@@ -8,7 +8,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
 
   var processAplications = function(apps) {
     var defer = $q.defer();
-    if (profile.apps && profile.apps.length > 0) {
+    if (apps && apps.length > 0) {
       Applications.get(apps).then(function(apps) {
         var repos = install = postInstall = "";
         install += "\n" +
@@ -75,7 +75,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
   var processIcons = function(icons) {
     var defer = $q.defer();
     if (icons && icons.length > 0) {
-      Icons.get(profile.icons).then(function(icons) {
+      Icons.get(icons).then(function(icons) {
         var repos = install = postInstall = "";
         install += "\n" +
           "\n" +
@@ -132,7 +132,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
   var processThemes = function(themes) {
     var defer = $q.defer();
     if (themes && themes.length > 0) {
-      Themes.get(profile.themes).then(function(themes) {
+      Themes.get(themes).then(function(themes) {
         var repos = install = postInstall = "";
         install += "\n" +
           "\n" +
