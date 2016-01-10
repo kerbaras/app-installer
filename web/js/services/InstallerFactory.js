@@ -15,7 +15,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
     var themesDefer = $q.defer();
     var promises = [appsDefer.promise, iconsDefer.promise, themesDefer.promise];
 
-    if (profile.apps && profile.apps > 0) {
+    if (profile.apps && profile.apps.length > 0) {
       Applications.get(profile.apps).then(function(apps) {
         var repos = install = postInstall = "";
         install +=  "\n" +
@@ -77,7 +77,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
       });
     }
 
-    if (profile.icons && profile.icons > 0) {
+    if (profile.icons && profile.icons.length > 0) {
       Icons.get(profile.icons).then(function(icons) {
         var repos = install = postInstall = "";
         install +=  "\n" +
@@ -130,7 +130,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
       });
     }
 
-    if (profile.themes && profile.themes > 0) {
+    if (profile.themes && profile.themes.length > 0) {
       Themes.get(profile.themes).then(function(themes) {
         var repos = install = postInstall = "";
         install +=  "\n" +
