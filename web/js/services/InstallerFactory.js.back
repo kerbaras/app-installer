@@ -27,7 +27,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
                     "\n";
         angular.forEach(apps, function(app) {
           var setup = app.distros[distro];
-          install += "echo \"Installing " + app.nombre + "\"\n";
+          install += "echo \"Installing " + app.nombre + "\" \n";
           install += "(\n";
           switch (setup.type) {
             case 'ppa':
@@ -88,7 +88,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
                     "echo \"\"\n" +
                     "\n";
         angular.forEach(icons, function(icon) {
-          install += "echo \"Installing " + icon.name + "\"\n";
+          install += "echo \"Installing " + icon.name + "\" \n";
           install += "(\n";
           switch (icon.type) {
             case 'ppa':
@@ -141,7 +141,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
                     "echo \"\"\n" +
                     "\n";
         angular.forEach(themes, function(theme) {
-          install += "echo \"Installing " + theme.name + "\"\n";
+          install += "echo \"Installing " + theme.name + "\" \n";
           install += "(\n";
           switch (theme.type) {
             case 'ppa':
@@ -194,113 +194,105 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
       });
 
       body = "#!/bin/bash\n" +
+             "clear\n" +
              "\n";
 
-     body += "# Checks if the system is 64bit or 32bit\n" +
-             "[[ $(uname -m) == x86_64 ]] && arch=amd64 || arch=i386\n" +
-             "\n";
+      body += "# Create a secure tmp directory\n" +
+              "tmp=$(mktemp -d -t hexeract.XXXXXXXXXX)\n" +
+              "\n";
 
-     body += "if [ $(tput colors) ]; then # Checks if terminal supports colors\n" +
-               "\tred=\"\\e[31m\"\n" +
-               "\tgreen=\"\\e[32m\"\n" +
-               "\tendcolor=\"\\e[39m\"\n" +
-             "fi\n" +
-             "\n";
+      body += "# Checks if the system is 64bit or 32bit\n" +
+              "[[ $(uname -m) == x86_64 ]] && arch=amd64 || arch=i386\n" +
+              "\n";
 
-      body += "display_screen \"We are not responsible for any damages that may possibly occur while using Hexeract!\"" +
+      body += "if [ $(tput colors) ]; then # Checks if terminal supports colors\n" +
+                "\tred=\"\\e[31m\"\n" +
+                "\tgreen=\"\\e[32m\"\n" +
+                "\tendcolor=\"\\e[39m\"\n" +
+              "fi\n" +
+              "\n";
+
+      body += "echo --------------------------------------------------------------------------------\n" +
+              "echo \"We are not responsible for any damages that may possibly occur while using Hexeract\"\n" +
+              "echo --------------------------------------------------------------------------------\n" +
+              "echo \"   \"\n" +
               "sleep 2\n" +
+              "\n";
+
+      body += "#use sudo rights for the whole script\n" +
+              "sudo -s <<HEXERACT\n" +
               "\n" +
-              "display_screen \"Welcome to Hexeract!\"\n";
+              "clear\n" +
+              "\n" +
+              "echo ------------------\n" +
+              "echo \"Welcome to Hexeract!\"\n" +
+              "echo ------------------\n" +
+              "echo \"   \"\n" +
+              "sleep 2\n" +
+              "\n";
 
       body += "trap \"rm -rf $tmp\" INT TERM EXIT\n\n";
 
-      body += "display_row \" \"\n" +
-              "display_row \"Preparing Installation: \"\n" +
-              "display_row \" \"\n";
-
       if(repos != ""){
-        body += "setup=\"Adding Repositories\"\n" +
-                "(\n" +
-                  "\tsudo -s <<<HEXERACT\n"+
-                    repos + "\n"+
-                  "\tHEXERACT\n"+
-                ") &> /dev/null && display_done || display_error &\n" +
-                "display_rowloader\n" +
+        body += "# Add all the repositories\n"+
+                "echo \"Adding Repositories\" \n"+
+                "(\n"+
+                repos +
+                ") &> /dev/null && echo -e \"$green OK $endcolor\" || echo -e \"$red FAILED $endcolor\"; # Hide all output\n"+
                 "\n";
       }
 
-      body += "setup=\"Updateing System\"\n" +
+      body += "echo \"Updating System\" \n" +
               "(\n" +
-              "\t sudo apt-get update\n"+
-              ") &> /dev/null && display_done || display_error &\n" +
-              "display_rowloader\n";
+                "\tapt-get update\n" +
+              ") &> /dev/null && echo -e \"$green OK $endcolor\" || echo -e \"$red FAILED $endcolor\"; # Hide all output\n" +
+              "\n";
 
       if(install != ""){
-        body += "display_row \" \"\n" +
-                "display_row \" \"\n" +
-                "display_row \"Starting Installation: \"\n" +
-                "display_row \" \"\n" +
-                install +
+        body += install +
                 "\n";
       }
 
-      body += "display_row \" \"\n" +
-              "display_row \" \"\n" +
-              "display_row \"Updateing Packages: \"\n" +
-              "display_row \" \"\n" +
-              "\n" +
-              "setup=\"Installing Failed Dependencies\"\n" +
+      body += "echo \"Upgrading old packages\"\n" +
               "(\n" +
-                "\tsudo apt-get -f install -y\n" +
-              ")  &> /dev/null && display_done || display_error &\n" +
-              "display_rowloader\n" +
-              "\n";
+              "\tapt-get -f install -y \n";
 
       if(settings.upgrade) {
-        body += "setup=\"Upgradeing System\"\n" +
-                "(\n" +
-                  "\tsudo apt-get upgrade -y\n" +
-                ")  &> /dev/null && display_done || display_error &\n" +
-                "display_rowloader\n" +
-                "\n";
+        body += "\tapt-get -y upgrade\n";
       }
 
-      if(settings.upgrade) {
-        body += "setup=\"Upgradeing Distribution\"\n" +
-                "(\n" +
-                  "\tsudo apt-get dist-upgrade -y\n" +
-                ")  &> /dev/null && display_done || display_error &\n" +
-                "display_rowloader\n" +
-                "\n";
+      if(settings.distUpgrade) {
+        body += "\tapt-get -y dist-upgrade\n";
       }
 
-      body += "setup=\"Clearing Packages\"\n" +
-              "(\n" +
-                "\tsudo apt-get -y autoremove\n" +
-                "\tsudo apt-get -y autoclean\n" +
-                "\tsudo apt-get -y clean\n" +
-              ")  &> /dev/null && display_done || display_error &\n" +
-              "display_rowloader\n" +
-              "\n" +
+      body += ") &> /dev/null && echo -e \"$green OK $endcolor\" || echo -e \"$red FAILED $endcolor\"; # Hide all output\n" +
               "\n";
+
+      body += "echo \"Cleaning up\"\n" +
+              "(\n" +
+                "\tapt-get -y autoremove \n" +
+                "\tapt-get -y autoclean \n" +
+                "\tapt-get -y clean\n" +
+              ") &> /dev/null && echo -e \"$green OK $endcolor\" || echo -e \"$red FAILED $endcolor\"; # Hide all output\n" +
+              "\n";
+
+      body += "HEXERACT\n" +
+              "\n";
+
 
       if (postInstall != "") {
-        body += "display_row \" \" \n "+
-                "display_row \" \" \n "+
-                "display_row \" \" \n "+
-                "setup=\"Running Post-Install\" \n "+
-                "( \n "+
+        body += "\n" +
+                "echo \"Running Post-Install\"\n" +
+                "(\n" +
                   postInstall +
-                ")  &> /dev/null && display_done || display_error & \n "+
-                "display_rowloader \n "+
+                ") &> /dev/null && echo -e \"$green OK $endcolor\" || echo -e \"$red FAILED $endcolor\"; # Hide all output\n" +
+                "\n";
       }
-      body += "display_row \" \" \n " +
-              "display_row \" \" \n " +
-              "display_row \"Installation has ended!\"" +
-              "\n" +
+
+      body += "\n" +
               "notify-send \"Hexeract\" \"Finished installing\"\n" +
               "\n" +
-              "exit 0"
+              "exit 0\n";
 
       deferred.resolve(body);
     });
