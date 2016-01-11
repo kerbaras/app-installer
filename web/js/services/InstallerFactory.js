@@ -53,7 +53,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
           }
 
           install +=  "HEXERACT\n" +
-                      ") &> /dev/null && display_done || display_error &\n" +
+                      ") &>> $log && display_done || display_error &\n" +
                       "display_rowloader\n" +
                       "\n";
         });
@@ -111,7 +111,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
           };
 
           install +=  "HEXERACT\n" +
-                      ") &> /dev/null && display_done || display_error &\n" +
+                      ") &>> $log && display_done || display_error &\n" +
                       "display_rowloader\n" +
                       "\n";
         });
@@ -169,7 +169,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
           };
 
           install +=  "HEXERACT\n" +
-                      ") &> /dev/null && display_done || display_error &\n" +
+                      ") &>> $log && display_done || display_error &\n" +
                       "display_rowloader\n" +
                       "\n";
         });
@@ -263,8 +263,11 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
   };
 
   this.getInstaller = function(profile, distro, settings) {
+    var _defaults = {
+      'log': '~/hexeract.log'
+    };
 
-    settings = angular.extend({}, settings);
+    settings = angular.extend({}, settings, _defaults);
 
     var deferred = $q.defer();
 
@@ -286,8 +289,16 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
           "\n";
 
         body += "# Create a secure tmp directory\n" +
-          "tmp=$(mktemp -d -t hexeract.XXXXXXXXXX)\n" +
-          "\n";
+          "tmp=$(mktemp -d -t hexeract.XXXXXXXXXX)\n";
+        if (settings.log){
+          body += "# Create a secure LOG file\n" +
+                  "log=\"" + settings.log +"\"\n" +
+                  "> $log";
+        }else{
+          body += "# By default log in /dev/null\n" +
+                  "log=\"/dev/null\"\n";
+        }
+        body += "\n";
 
         body += "# Checks if the system is 64bit or 32bit\n" +
           "[[ $(uname -m) == x86_64 ]] && arch=amd64 || arch=i386\n" +
@@ -320,7 +331,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
             "\tsudo -s <<HEXERACT\n" +
             repos + "\n" +
             "HEXERACT\n" +
-            ") &> /dev/null && display_done || display_error &\n" +
+            ") &>> $log && display_done || display_error &\n" +
             "display_rowloader\n" +
             "\n";
         }
@@ -328,7 +339,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
         body += "setup=\"Updating System\"\n" +
           "(\n" +
           "\tsudo apt-get update\n" +
-          ") &> /dev/null && display_done || display_error &\n" +
+          ") &>> $log && display_done || display_error &\n" +
           "display_rowloader\n";
 
         if (install != "") {
@@ -348,7 +359,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
           "setup=\"Installing Failed Dependencies\"\n" +
           "(\n" +
           "\tsudo apt-get -f install -y\n" +
-          ") &> /dev/null && display_done || display_error &\n" +
+          ") &>> $log && display_done || display_error &\n" +
           "display_rowloader\n" +
           "\n";
 
@@ -356,7 +367,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
           body += "setup=\"Upgradeing System\"\n" +
             "(\n" +
             "\tsudo apt-get upgrade -y\n" +
-            ")  &> /dev/null && display_done || display_error &\n" +
+            ")  &>> $log && display_done || display_error &\n" +
             "display_rowloader\n" +
             "\n";
         }
@@ -365,7 +376,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
           body += "setup=\"Upgradeing Distribution\"\n" +
             "(\n" +
             "\tsudo apt-get dist-upgrade -y\n" +
-            ")  &> /dev/null && display_done || display_error &\n" +
+            ")  &>> $log && display_done || display_error &\n" +
             "display_rowloader\n" +
             "\n";
         }
@@ -375,7 +386,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
           "\tsudo apt-get -y autoremove\n" +
           "\tsudo apt-get -y autoclean\n" +
           "\tsudo apt-get -y clean\n" +
-          ")  &> /dev/null && display_done || display_error &\n" +
+          ")  &>> $log && display_done || display_error &\n" +
           "display_rowloader\n" +
           "\n" +
           "\n";
@@ -387,7 +398,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
             "setup=\"Running Post-Install\" \n " +
             "( \n " +
             postInstall +
-            ")  &> /dev/null && display_done || display_error & \n " +
+            ")  &>> $log && display_done || display_error & \n " +
             "display_rowloader \n ";
         }
         body += "display_row \" \" \n " +
